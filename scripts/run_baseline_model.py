@@ -87,18 +87,42 @@ def is_correct(parsed: str, entry: dict) -> bool:
 
 # ─────────────────────────── API call ────────────────────────────────────────
 
+def _is_anthropic(endpoint: str) -> bool:
+    return "anthropic.com" in endpoint
+
+
 def call_baseline(messages: list[dict], endpoint: str, token: str,
                   model_name: str, retries: int = 2) -> dict:
-    headers = {
-        "Authorization": f"Bearer {token}",
-        "Content-Type": "application/json",
-    }
-    payload = {
-        "model": model_name,
-        "messages": messages,
-        "max_tokens": MAX_TOKENS,
-        "temperature": TEMPERATURE,
-    }
+    anthropic = _is_anthropic(endpoint)
+
+    if anthropic:
+        headers = {
+            "x-api-key": token,
+            "anthropic-version": "2023-06-01",
+            "content-type": "application/json",
+        }
+        # Anthropic API: system must be a top-level field, not inside messages
+        system_msgs = [m["content"] for m in messages if m["role"] == "system"]
+        user_msgs = [m for m in messages if m["role"] != "system"]
+        payload = {
+            "model": model_name,
+            "messages": user_msgs,
+            "max_tokens": MAX_TOKENS,
+        }
+        if system_msgs:
+            payload["system"] = "\n".join(system_msgs)
+    else:
+        headers = {
+            "Authorization": f"Bearer {token}",
+            "Content-Type": "application/json",
+        }
+        payload = {
+            "model": model_name,
+            "messages": messages,
+            "max_tokens": MAX_TOKENS,
+            "temperature": TEMPERATURE,
+        }
+
     for attempt in range(retries + 1):
         try:
             resp = requests.post(endpoint, headers=headers, json=payload, timeout=60)
@@ -108,7 +132,11 @@ def call_baseline(messages: list[dict], endpoint: str, token: str,
                     continue
                 return {"error": "ERROR:429"}
             resp.raise_for_status()
-            content = resp.json()["choices"][0]["message"].get("content", "")
+            body = resp.json()
+            if anthropic:
+                content = body["content"][0]["text"]
+            else:
+                content = body["choices"][0]["message"].get("content", "")
             return {"content": content or ""}
         except Exception as e:
             print(f"  [WARN] Attempt {attempt+1} failed: {e}")

@@ -1,0 +1,36 @@
+{
+  "lllm": {
+    "binary": {
+      "accuracy": 0.56,
+      "n": 50
+    },
+    "ternary": {
+      "accuracy": 0.5,
+      "n": 50
+    },
+    "mcq": {
+      "accuracy": 0.3,
+      "n": 50
+    },
+    "fir": 0.74,
+    "fir_unstable": 37,
+    "fir_total": 50
+  },
+  "claude-sonnet-4-6": {
+    "binary": {
+      "accuracy": 0.7333,
+      "n": 15
+    },
+    "ternary": {
+      "accuracy": 0.5,
+      "n": 8
+    },
+    "mcq": {
+      "accuracy": 1.0,
+      "n": 15
+    },
+    "fir": 0.4,
+    "fir_unstable": 6,
+    "fir_total": 15
+  }
+}
