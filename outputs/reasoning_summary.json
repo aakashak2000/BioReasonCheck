@@ -1,0 +1,9 @@
+{
+  "pearson_r_composite": 0.0411,
+  "pearson_p_composite": 0.7768,
+  "pearson_r_hallucination": -0.2429,
+  "pearson_r_consistency": 0.2184,
+  "threshold_precision": 0.55,
+  "threshold_recall": 0.8462,
+  "threshold_f1": 0.6667
+}

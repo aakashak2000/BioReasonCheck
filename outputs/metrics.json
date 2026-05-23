@@ -1,0 +1,29 @@
+{
+  "overall": {
+    "accuracy": 0.5333,
+    "macro_f1": 0.3175,
+    "balanced_accuracy": 0.3889,
+    "n": 15
+  },
+  "per_format": {
+    "ternary": {
+      "accuracy": 0.5333,
+      "f1": 0.3175,
+      "n": 15
+    }
+  },
+  "format_instability": {
+    "rate": 0.0,
+    "unstable_facts": 0,
+    "facts_with_2plus_formats": 0
+  },
+  "baselines": {
+    "majority_class": "NOT_SUPPORTED",
+    "majority_accuracy": 0.4667,
+    "random_accuracy": 0.3333
+  },
+  "unparseable": {
+    "count": 0,
+    "total": 15
+  }
+}

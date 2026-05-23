@@ -1,0 +1,21 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Secrets
+.env
+
+# macOS
+.DS_Store
+
+# Large / generated outputs (keep structure, not data)
+outputs/model_outputs.jsonl
+outputs/traces_ternary.jsonl
+outputs/reasoning_scores.jsonl
+
+# Duplicate raw files in root (canonical copies are in data/raw/)
+/opengenes.csv
+/opengenes_lifespan.csv
+/opengenes_raw.json
