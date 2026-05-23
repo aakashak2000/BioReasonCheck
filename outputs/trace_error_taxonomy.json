@@ -1,0 +1,456 @@
+{
+  "n_rows_analyzed": 150,
+  "error_taxonomy": {
+    "process_as_gene": {
+      "n_flagged": 47,
+      "wrong_rate": 0.4894
+    },
+    "consistency_mismatch": {
+      "n_flagged": 14,
+      "wrong_rate": 0.7143
+    },
+    "source_misattribution": {
+      "n_flagged": 15,
+      "wrong_rate": 0.3333
+    },
+    "fake_trap_bleed": {
+      "n_flagged": 0,
+      "wrong_rate": 0.0
+    }
+  },
+  "process_instances": [
+    {
+      "fact_id": "F001",
+      "gene": "MAPK9",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED The claim states that MAPK9 is listed as a cellular senescence gene in"
+    },
+    {
+      "fact_id": "F002",
+      "gene": "NRSN2",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "NOT_SUPPORTED The claim states that NRSN2 is listed as a cellular senescence gen"
+    },
+    {
+      "fact_id": "F003",
+      "gene": "SUMO3",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED The claim states that SUMO3 is listed as a cellular senescence gene in"
+    },
+    {
+      "fact_id": "F004",
+      "gene": "ROMO1",
+      "process_terms": [
+        "SASP",
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED The claim states that ROMO1 is listed as a cellular senescence gene in"
+    },
+    {
+      "fact_id": "F005",
+      "gene": "SMAD1",
+      "process_terms": [
+        "SASP",
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED The claim states that SMAD1 is listed as a cellular senescence gene in"
+    },
+    {
+      "fact_id": "F006",
+      "gene": "NEDD4",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED The claim states that NEDD4 is listed as a cellular senescence gene in"
+    },
+    {
+      "fact_id": "F007",
+      "gene": "STAT6",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED The claim states that STAT6 is listed as a cellular senescence gene in"
+    },
+    {
+      "fact_id": "F008",
+      "gene": "ITPR3",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED The claim states that ITPR3 is listed as a cellular senescence gene in"
+    },
+    {
+      "fact_id": "F009",
+      "gene": "UBE2C",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "NOT_SUPPORTED The claim states that UBE2C is listed as a cellular senescence gen"
+    },
+    {
+      "fact_id": "F010",
+      "gene": "NUAK2",
+      "process_terms": [
+        "AUTOPHAGY",
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED The claim states that NUAK2 is listed as a cellular senescence gene in"
+    },
+    {
+      "fact_id": "F011",
+      "gene": "SIAH1",
+      "process_terms": [
+        "PROTEOSTASIS",
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED The claim states that SIAH1 is listed as a cellular senescence gene in"
+    },
+    {
+      "fact_id": "F012",
+      "gene": "SPHK1",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED The claim states that SPHK1 is listed as a cellular senescence gene in"
+    },
+    {
+      "fact_id": "F013",
+      "gene": "TACC3",
+      "process_terms": [
+        "SASP",
+        "SENESCENCE"
+      ],
+      "snippet": "NOT_SUPPORTED The claim states that TACC3 is listed as a cellular senescence gen"
+    },
+    {
+      "fact_id": "F014",
+      "gene": "STAG2",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED STAG2 (also known as RBBP4) is a key component of the SMC5/6 complex, "
+    },
+    {
+      "fact_id": "F015",
+      "gene": "NUDT5",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED The claim states that NUDT5 is listed as a cellular senescence gene in"
+    },
+    {
+      "fact_id": "F017",
+      "gene": "CDKN2A",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "NOT_SUPPORTED The claim states that CDKN2A is listed in OpenGenes as a gene whos"
+    },
+    {
+      "fact_id": "F018",
+      "gene": "IKBKB",
+      "process_terms": [
+        "MTOR",
+        "INFLAMMAGING"
+      ],
+      "snippet": "NOT_SUPPORTED The claim states that IKBKB is listed in OpenGenes as a gene whose"
+    },
+    {
+      "fact_id": "F019",
+      "gene": "CYB5R3",
+      "process_terms": [
+        "OXIDATIVE STRESS"
+      ],
+      "snippet": "NOT_SUPPORTED The claim asserts that CYB5R3 is listed in OpenGenes as a gene who"
+    },
+    {
+      "fact_id": "F020",
+      "gene": "TERT",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "NOT_SUPPORTED The claim states that TERT is listed in OpenGenes as a gene whose "
+    },
+    {
+      "fact_id": "F021",
+      "gene": "CISD2",
+      "process_terms": [
+        "SENESCENCE",
+        "APOPTOSIS"
+      ],
+      "snippet": "NOT_SUPPORTED The claim asserts that CISD2 is listed in OpenGenes as a gene whos"
+    },
+    {
+      "fact_id": "F023",
+      "gene": "IGF1",
+      "process_terms": [
+        "MTOR"
+      ],
+      "snippet": "NOT_SUPPORTED The claim states that IGF1 is listed in OpenGenes as a gene whose "
+    },
+    {
+      "fact_id": "F024",
+      "gene": "KL",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED The claim states that KL (KLF) is listed in OpenGenes as a gene whose "
+    },
+    {
+      "fact_id": "F025",
+      "gene": "GSTA4",
+      "process_terms": [
+        "PROTEOSTASIS",
+        "OXIDATIVE STRESS"
+      ],
+      "snippet": "NOT_SUPPORTED The claim asserts that GSTA4 is listed in OpenGenes as a gene whos"
+    },
+    {
+      "fact_id": "F026",
+      "gene": "EEF2",
+      "process_terms": [
+        "PROTEOSTASIS",
+        "SENESCENCE"
+      ],
+      "snippet": "NOT_SUPPORTED The claim states that EEF2 is listed in OpenGenes as associated wi"
+    },
+    {
+      "fact_id": "F027",
+      "gene": "PRKAR2B",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "NOT_SUPPORTED The PRKAR2B gene encodes a regulatory subunit of protein kinase A "
+    },
+    {
+      "fact_id": "F028",
+      "gene": "G6PD",
+      "process_terms": [
+        "PROTEOSTASIS",
+        "SENESCENCE",
+        "OXIDATIVE STRESS"
+      ],
+      "snippet": "NOT_SUPPORTED The claim states that G6PD is listed in OpenGenes as associated wi"
+    },
+    {
+      "fact_id": "F029",
+      "gene": "TOPORS",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED The protein TOPORS (Topoisomerase III alpha) is primarily characterize"
+    },
+    {
+      "fact_id": "F031",
+      "gene": "GAPDH",
+      "process_terms": [
+        "SASP",
+        "SENESCENCE"
+      ],
+      "snippet": "NOT_SUPPORTED The claim states that GAPDH is listed as a cellular senescence gen"
+    },
+    {
+      "fact_id": "F032",
+      "gene": "ACTB",
+      "process_terms": [
+        "SASP",
+        "SENESCENCE"
+      ],
+      "snippet": "NOT_SUPPORTED The claim states that ACTB (beta-actin) is listed as a cellular se"
+    },
+    {
+      "fact_id": "F033",
+      "gene": "TUBB",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "NOT_SUPPORTED The claim states that TUBB (Tubulin Beta) is listed as a cellular "
+    },
+    {
+      "fact_id": "F034",
+      "gene": "LDHA",
+      "process_terms": [
+        "SASP",
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED The claim states that LDHA is listed as a cellular senescence gene in "
+    },
+    {
+      "fact_id": "F035",
+      "gene": "PKM",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "NOT_SUPPORTED The claim states that PKM (pyruvate kinase, muscle) is listed as a"
+    },
+    {
+      "fact_id": "F036",
+      "gene": "ENO1",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED The claim states that ENO1 is listed as a cellular senescence gene in "
+    },
+    {
+      "fact_id": "F037",
+      "gene": "TPI1",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED The claim states that TPI1 (Tryptophan Permease 1) is listed as a cell"
+    },
+    {
+      "fact_id": "F038",
+      "gene": "ALDOA",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED ALDOA (aldolase A) is a glycolytic enzyme with established roles in en"
+    },
+    {
+      "fact_id": "F039",
+      "gene": "PGK1",
+      "process_terms": [
+        "SASP",
+        "MTOR",
+        "SENESCENCE"
+      ],
+      "snippet": "NOT_SUPPORTED The claim states that PGK1 is listed as a cellular senescence gene"
+    },
+    {
+      "fact_id": "F040",
+      "gene": "PGAM1",
+      "process_terms": [
+        "SASP",
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED The claim states that PGAM1 is listed as a cellular senescence gene in"
+    },
+    {
+      "fact_id": "F041",
+      "gene": "FASN",
+      "process_terms": [
+        "MTOR",
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED The claim states that FASN (Fatty Acid Synthase) is listed as a cellul"
+    },
+    {
+      "fact_id": "F042",
+      "gene": "ACACA",
+      "process_terms": [
+        "SASP",
+        "MTOR",
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED The claim states that ACACA is listed as a cellular senescence gene in"
+    },
+    {
+      "fact_id": "F043",
+      "gene": "ACLY",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED The claim states that ACLY (ATP-citrate lyase) is listed as a cellular"
+    },
+    {
+      "fact_id": "F044",
+      "gene": "SUCLA2",
+      "process_terms": [
+        "SASP",
+        "SENESCENCE"
+      ],
+      "snippet": "NOT_SUPPORTED The SUCLA2 gene encodes a subunit of the succinyl-CoA synthetase e"
+    },
+    {
+      "fact_id": "F045",
+      "gene": "SDHA",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "NOT_SUPPORTED The claim states that SDHA is listed as a cellular senescence gene"
+    },
+    {
+      "fact_id": "F046",
+      "gene": "AGEX1",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "SUPPORTED The claim states that AGEX1 is listed as a cellular senescence gene in"
+    },
+    {
+      "fact_id": "F047",
+      "gene": "LNVT3",
+      "process_terms": [
+        "SASP",
+        "SENESCENCE"
+      ],
+      "snippet": "NOT_SUPPORTED The claim states that LNVT3 is listed as a cellular senescence gen"
+    },
+    {
+      "fact_id": "F048",
+      "gene": "SNRP9X",
+      "process_terms": [
+        "SASP",
+        "SENESCENCE"
+      ],
+      "snippet": "NOT_SUPPORTED The claim states that SNRP9X is listed as a cellular senescence ge"
+    },
+    {
+      "fact_id": "F049",
+      "gene": "FOXQ7L",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "NOT_SUPPORTED The claim states that FOXQ7L is listed as a cellular senescence ge"
+    },
+    {
+      "fact_id": "F050",
+      "gene": "TERT2B",
+      "process_terms": [
+        "SENESCENCE"
+      ],
+      "snippet": "NOT_SUPPORTED The claim states that TERT2B is listed as a cellular senescence ge"
+    }
+  ],
+  "top_process_terms": [
+    {
+      "term": "SENESCENCE",
+      "count": 43
+    },
+    {
+      "term": "SASP",
+      "count": 12
+    },
+    {
+      "term": "MTOR",
+      "count": 5
+    },
+    {
+      "term": "PROTEOSTASIS",
+      "count": 4
+    },
+    {
+      "term": "OXIDATIVE STRESS",
+      "count": 3
+    },
+    {
+      "term": "AUTOPHAGY",
+      "count": 1
+    },
+    {
+      "term": "INFLAMMAGING",
+      "count": 1
+    },
+    {
+      "term": "APOPTOSIS",
+      "count": 1
+    }
+  ]
+}

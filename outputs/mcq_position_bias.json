@@ -1,0 +1,46 @@
+{
+  "n_mcq_test": 15,
+  "accuracy_by_position": {
+    "A": {
+      "n": 5,
+      "accuracy": 0.6
+    },
+    "B": {
+      "n": 2,
+      "accuracy": 0.0
+    },
+    "C": {
+      "n": 4,
+      "accuracy": 0.5
+    },
+    "D": {
+      "n": 4,
+      "accuracy": 0.0
+    }
+  },
+  "model_selection_distribution": {
+    "A": {
+      "count": 6,
+      "pct": 40.0
+    },
+    "B": {
+      "count": 2,
+      "pct": 13.3
+    },
+    "C": {
+      "count": 7,
+      "pct": 46.7
+    },
+    "D": {
+      "count": 0,
+      "pct": 0.0
+    },
+    "UNKNOWN": 0,
+    "AMBIGUOUS": 0
+  },
+  "position_bias": {
+    "chi2": 8.7333,
+    "p": 0.0331,
+    "significant": true
+  }
+}

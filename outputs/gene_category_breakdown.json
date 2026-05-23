@@ -1,0 +1,105 @@
+{
+  "split": "test",
+  "per_gene_type": {
+    "cellage": {
+      "n_prompts": 9,
+      "n_facts": 3,
+      "accuracy": 0.5556,
+      "fir": 1.0,
+      "n_unstable_facts": 3
+    },
+    "og_mixed": {
+      "n_prompts": 6,
+      "n_facts": 2,
+      "accuracy": 0.5,
+      "fir": 1.0,
+      "n_unstable_facts": 2
+    },
+    "hard_negative": {
+      "n_prompts": 21,
+      "n_facts": 7,
+      "accuracy": 0.5238,
+      "fir": 0.8571,
+      "n_unstable_facts": 6
+    },
+    "og_extending": {
+      "n_prompts": 9,
+      "n_facts": 3,
+      "accuracy": 0.3333,
+      "fir": 1.0,
+      "n_unstable_facts": 3
+    }
+  },
+  "hard_negative_hallucinations": [
+    {
+      "id": "F036_ternary",
+      "gene": "ENO1",
+      "format_type": "ternary",
+      "parsed_label": "SUPPORTED",
+      "raw_output_snippet": "SUPPORTED"
+    },
+    {
+      "id": "F036_mcq",
+      "gene": "ENO1",
+      "format_type": "mcq",
+      "parsed_label": "SUPPORTED",
+      "raw_output_snippet": "B"
+    },
+    {
+      "id": "F041_ternary",
+      "gene": "FASN",
+      "format_type": "ternary",
+      "parsed_label": "SUPPORTED",
+      "raw_output_snippet": "SUPPORTED"
+    },
+    {
+      "id": "F041_mcq",
+      "gene": "FASN",
+      "format_type": "mcq",
+      "parsed_label": "SUPPORTED",
+      "raw_output_snippet": "C"
+    },
+    {
+      "id": "F042_ternary",
+      "gene": "ACACA",
+      "format_type": "ternary",
+      "parsed_label": "SUPPORTED",
+      "raw_output_snippet": "SUPPORTED"
+    },
+    {
+      "id": "F042_mcq",
+      "gene": "ACACA",
+      "format_type": "mcq",
+      "parsed_label": "SUPPORTED",
+      "raw_output_snippet": "C"
+    },
+    {
+      "id": "F043_ternary",
+      "gene": "ACLY",
+      "format_type": "ternary",
+      "parsed_label": "SUPPORTED",
+      "raw_output_snippet": "SUPPORTED"
+    },
+    {
+      "id": "F043_mcq",
+      "gene": "ACLY",
+      "format_type": "mcq",
+      "parsed_label": "SUPPORTED",
+      "raw_output_snippet": "A"
+    },
+    {
+      "id": "F044_mcq",
+      "gene": "SUCLA2",
+      "format_type": "mcq",
+      "parsed_label": "SUPPORTED",
+      "raw_output_snippet": "B"
+    },
+    {
+      "id": "F045_mcq",
+      "gene": "SDHA",
+      "format_type": "mcq",
+      "parsed_label": "SUPPORTED",
+      "raw_output_snippet": "C"
+    }
+  ]
+}
