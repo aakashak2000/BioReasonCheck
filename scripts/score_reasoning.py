@@ -21,6 +21,8 @@ from scipy.stats import pearsonr
 
 ROOT = Path(__file__).parent.parent
 
+FAKE_TRAPS = ["AGEX1", "LNVT3", "SNRP9X", "FOXQ7L", "TERT2B"]
+
 # Tokens to exclude from gene-symbol detection in reasoning traces.
 # Includes task labels, MCQ option letters, common English uppercase words,
 # and biology terms that are not gene symbols.
@@ -302,6 +304,89 @@ def main():
         print(f"\n── Top hallucinated gene tokens (not in valid_genes) ──")
         for token, count in top_hallucinated:
             print(f"  {token}: {count}")
+
+    # ── Fake-trap contamination analysis ──
+    # For every row whose gene is NOT itself a fake trap, check whether any
+    # fake-trap symbol appears in the raw model output (hallucinated reference).
+    print(f"\n── Fake-trap contamination (hallucinated symbols in non-trap rows) ──")
+
+    contamination_events = []  # {row_id, gene, fake_trap_mentioned, raw_output_snippet}
+    contamination_counts = {ft: 0 for ft in FAKE_TRAPS}
+    total_non_trap_rows = 0
+
+    for r in scored:
+        gene_upper = str(r.get("gene", "")).strip().upper()
+        if gene_upper in [ft.upper() for ft in FAKE_TRAPS]:
+            continue  # skip fake-trap rows themselves
+        total_non_trap_rows += 1
+        # Check raw_output field from the original df for this row
+        raw = ""
+        thinking = ""
+        match_rows = df[df["id"] == r["id"]]
+        if not match_rows.empty:
+            mrow = match_rows.iloc[0]
+            raw = str(mrow.get("raw_output", "") or "")
+            thinking = str(mrow.get("thinking_trace", "") or "")
+        # Check both the final answer and the reasoning trace
+        raw_upper = (raw + " " + thinking).upper()
+        for ft in FAKE_TRAPS:
+            if re.search(r"\b" + re.escape(ft) + r"\b", raw_upper):
+                contamination_counts[ft] += 1
+                contamination_events.append({
+                    "row_id": r["id"],
+                    "gene": r["gene"],
+                    "fake_trap_mentioned": ft,
+                    "raw_output_snippet": (thinking or raw)[:200],
+                })
+
+    total_contaminated_rows = len({e["row_id"] for e in contamination_events})
+    contamination_rate = total_contaminated_rows / total_non_trap_rows if total_non_trap_rows else 0.0
+
+    print(f"  Non-trap rows checked:   {total_non_trap_rows}")
+    print(f"  Rows with any leakage:   {total_contaminated_rows}  "
+          f"({contamination_rate*100:.1f}%)")
+    print(f"  Per-symbol leakage counts:")
+    for ft in FAKE_TRAPS:
+        print(f"    {ft}: {contamination_counts[ft]}")
+
+    # Save fake_trap_leakage_table.md
+    table_path = args.out.parent / "fake_trap_leakage_table.md"
+    with open(table_path, "w") as tbl:
+        tbl.write("# Fake-Trap Leakage Table\n\n")
+        tbl.write("Fake-trap symbols (invented gene names not in any database) that appeared "
+                  "verbatim in model outputs for **unrelated real-gene rows**, indicating "
+                  "hallucinated cross-contamination.\n\n")
+        tbl.write(f"**Total non-trap rows:** {total_non_trap_rows}  \n")
+        tbl.write(f"**Rows with leakage:** {total_contaminated_rows} "
+                  f"({contamination_rate*100:.1f}%)  \n\n")
+        tbl.write("| Fake Symbol | Leakage Count |\n")
+        tbl.write("|---|---|\n")
+        for ft in FAKE_TRAPS:
+            tbl.write(f"| `{ft}` | {contamination_counts[ft]} |\n")
+        if contamination_events:
+            tbl.write("\n## Sample Leakage Events\n\n")
+            tbl.write("| Row ID | Gene | Fake Symbol Mentioned | Output Snippet |\n")
+            tbl.write("|---|---|---|---|\n")
+            for ev in contamination_events[:10]:
+                snippet = ev["raw_output_snippet"].replace("|", "\\|").replace("\n", " ")
+                tbl.write(f"| {ev['row_id']} | {ev['gene']} | `{ev['fake_trap_mentioned']}` "
+                          f"| {snippet} |\n")
+    print(f"  Saved leakage table → {table_path}")
+
+    # ── Save reasoning_metrics.json ──
+    reasoning_metrics = {
+        "fake_trap_contamination": {
+            "total_non_trap_rows": total_non_trap_rows,
+            "rows_with_leakage": total_contaminated_rows,
+            "leakage_rate": round(contamination_rate, 4),
+            "per_symbol_counts": contamination_counts,
+            "total_leakage_events": len(contamination_events),
+        }
+    }
+    metrics_path = args.out.parent / "reasoning_metrics.json"
+    with open(metrics_path, "w") as f:
+        json.dump(reasoning_metrics, f, indent=2)
+    print(f"  Saved reasoning_metrics.json → {metrics_path}")
 
     print(f"\n[Done] Scored {len(scored)} rows → {args.out}")
 

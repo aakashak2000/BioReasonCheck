@@ -1,0 +1,15 @@
+{
+  "fake_trap_contamination": {
+    "total_non_trap_rows": 45,
+    "rows_with_leakage": 0,
+    "leakage_rate": 0.0,
+    "per_symbol_counts": {
+      "AGEX1": 0,
+      "LNVT3": 0,
+      "SNRP9X": 0,
+      "FOXQ7L": 0,
+      "TERT2B": 0
+    },
+    "total_leakage_events": 0
+  }
+}

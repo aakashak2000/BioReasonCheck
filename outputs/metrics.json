@@ -1,29 +1,69 @@
 {
   "overall": {
-    "accuracy": 0.5333,
-    "macro_f1": 0.3175,
-    "balanced_accuracy": 0.3889,
+    "accuracy": 0.4667,
+    "macro_f1": 0.3316,
+    "balanced_accuracy": 0.3651,
     "n": 15
   },
   "per_format": {
+    "binary": {
+      "accuracy": 0.6667,
+      "f1": 0.2857,
+      "n": 15
+    },
     "ternary": {
-      "accuracy": 0.5333,
-      "f1": 0.3175,
+      "accuracy": 0.4667,
+      "f1": 0.3316,
+      "n": 15
+    },
+    "mcq": {
+      "accuracy": 0.3333,
+      "f1": 0.3333,
       "n": 15
     }
   },
   "format_instability": {
-    "rate": 0.0,
-    "unstable_facts": 0,
-    "facts_with_2plus_formats": 0
+    "rate": 0.9333,
+    "unstable_facts": 14,
+    "facts_with_2plus_formats": 15
   },
   "baselines": {
     "majority_class": "NOT_SUPPORTED",
     "majority_accuracy": 0.4667,
-    "random_accuracy": 0.3333
+    "majority_f1": 0.2121,
+    "random_accuracy": 0.3333,
+    "random_f1": 0.3333
   },
   "unparseable": {
     "count": 0,
-    "total": 15
+    "total": 45
+  },
+  "statistical_tests": {
+    "wilson_ci_lo": 0.7019,
+    "wilson_ci_hi": 0.9882,
+    "wilson_k": 14,
+    "wilson_n": 15,
+    "mcnemar_b": 8,
+    "mcnemar_c": 3,
+    "mcnemar_chi2": 1.4545,
+    "mcnemar_p": 0.2278
+  },
+  "per_gene_type": {
+    "cellage": {
+      "n": 9,
+      "accuracy": 0.5556
+    },
+    "hard_negative": {
+      "n": 21,
+      "accuracy": 0.5238
+    },
+    "og_extending": {
+      "n": 9,
+      "accuracy": 0.3333
+    },
+    "og_mixed": {
+      "n": 6,
+      "accuracy": 0.5
+    }
   }
 }
