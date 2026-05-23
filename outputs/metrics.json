@@ -43,6 +43,14 @@
     "wilson_ci_hi": 0.9882,
     "wilson_k": 14,
     "wilson_n": 15,
+    "fir_wilson_ci": [
+      0.7019,
+      0.9882
+    ],
+    "fir_bootstrap_ci": [
+      0.8,
+      1.0
+    ],
     "mcnemar_b": 8,
     "mcnemar_c": 3,
     "mcnemar_chi2": 1.4545,
@@ -64,6 +72,123 @@
     "og_mixed": {
       "n": 6,
       "accuracy": 0.5
+    }
+  },
+  "all_facts": {
+    "overall": {
+      "accuracy": 0.5,
+      "macro_f1": 0.3496,
+      "balanced_accuracy": 0.37,
+      "n": 50
+    },
+    "per_format": {
+      "binary": {
+        "accuracy": 0.56,
+        "f1": 0.3125,
+        "n": 50
+      },
+      "ternary": {
+        "accuracy": 0.5,
+        "f1": 0.3496,
+        "n": 50
+      },
+      "mcq": {
+        "accuracy": 0.3,
+        "f1": 0.3,
+        "n": 50
+      }
+    },
+    "format_instability": {
+      "rate": 0.74,
+      "unstable_facts": 37,
+      "facts_with_2plus_formats": 50
+    },
+    "baselines": {
+      "majority_class": "SUPPORTED",
+      "majority_accuracy": 0.5,
+      "majority_f1": 0.2222,
+      "random_accuracy": 0.3333,
+      "random_f1": 0.3333
+    },
+    "unparseable": {
+      "count": 0,
+      "total": 150
+    },
+    "statistical_tests": {
+      "wilson_ci_lo": 0.6045,
+      "wilson_ci_hi": 0.8413,
+      "wilson_k": 37,
+      "wilson_n": 50,
+      "fir_wilson_ci": [
+        0.6045,
+        0.8413
+      ],
+      "fir_bootstrap_ci": [
+        0.62,
+        0.86
+      ],
+      "mcnemar_b": 21,
+      "mcnemar_c": 8,
+      "mcnemar_chi2": 4.9655,
+      "mcnemar_p": 0.0259
+    },
+    "per_gene_type": {
+      "cellage": {
+        "n": 45,
+        "accuracy": 0.5556
+      },
+      "fake_trap": {
+        "n": 15,
+        "accuracy": 0.5333
+      },
+      "hard_negative": {
+        "n": 45,
+        "accuracy": 0.5333
+      },
+      "og_extending": {
+        "n": 30,
+        "accuracy": 0.1667
+      },
+      "og_mixed": {
+        "n": 15,
+        "accuracy": 0.4
+      }
+    }
+  },
+  "split_comparison": {
+    "all_facts": {
+      "fir": 0.74,
+      "unstable_facts": 37,
+      "facts_with_2plus": 50,
+      "binary_accuracy": 0.56,
+      "ternary_accuracy": 0.5,
+      "mcq_accuracy": 0.3,
+      "overall_accuracy": 0.5,
+      "fir_wilson_ci": [
+        0.6045,
+        0.8413
+      ],
+      "fir_bootstrap_ci": [
+        0.62,
+        0.86
+      ]
+    },
+    "test": {
+      "fir": 0.9333,
+      "unstable_facts": 14,
+      "facts_with_2plus": 15,
+      "binary_accuracy": 0.6667,
+      "ternary_accuracy": 0.4667,
+      "mcq_accuracy": 0.3333,
+      "overall_accuracy": 0.4667,
+      "fir_wilson_ci": [
+        0.7019,
+        0.9882
+      ],
+      "fir_bootstrap_ci": [
+        0.8,
+        1.0
+      ]
     }
   }
 }

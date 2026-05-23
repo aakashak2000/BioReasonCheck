@@ -78,6 +78,32 @@ def mcnemar_test(b: int, c: int) -> tuple:
     return chi2_stat, p
 
 
+def bootstrap_fir(facts_correctness_dict: dict, n_boot: int = 1000, seed: int = 42) -> tuple:
+    """
+    Bootstrap CI for FIR, resampling by fact_id (not by prompt row).
+    facts_correctness_dict: {fact_id: {format_type: bool}}
+    Returns (ci_lo, ci_hi).
+    """
+    import random
+    rng = random.Random(seed)
+    fact_ids = list(facts_correctness_dict.keys())
+    n = len(fact_ids)
+    if n < 2:
+        return None, None
+    scores = []
+    for _ in range(n_boot):
+        sample = [rng.choice(fact_ids) for _ in range(n)]
+        unstable = sum(
+            1 for fid in sample
+            if len(set(facts_correctness_dict[fid].values())) > 1
+        )
+        scores.append(unstable / n)
+    scores.sort()
+    lo = scores[int(0.025 * n_boot)]
+    hi = scores[int(0.975 * n_boot)]
+    return lo, hi
+
+
 def infer_gene_type(row: pd.Series) -> str:
     src = str(row.get("source_dataset", "")).strip()
     gold = str(row.get("gold_label", "")).strip()
@@ -135,9 +161,11 @@ def main():
             df[col] = df[col].fillna(df[f"{col}_claims"])
             df.drop(columns=[f"{col}_claims"], inplace=True)
 
-    df = df[df["split"] == args.split].copy()
+    if args.split != "all":
+        df = df[df["split"] == args.split].copy()
     print(f"\n{'='*60}")
-    print(f"Evaluating split='{args.split}' | {len(df)} rows")
+    split_label = "all" if args.split == "all" else args.split
+    print(f"Evaluating split='{split_label}' | {len(df)} rows")
     print(f"{'='*60}")
 
     # ── UNPARSEABLE report ──
@@ -224,6 +252,17 @@ def main():
     print(f"  Unstable facts:         {unstable_count} / {facts_with_2plus}")
     print(f"  FORMAT INSTABILITY RATE: {fir:.4f} ({fir*100:.1f}%)")
 
+    # Build dict for bootstrap: {fact_id: {format_type: bool}}
+    facts_correctness_dict = {}
+    for r in instability_table:
+        fmts = {}
+        for fmt in ("binary", "ternary", "mcq"):
+            v = r.get(f"{fmt}_ok")
+            if v is not None:
+                fmts[fmt] = v
+        if fmts:
+            facts_correctness_dict[r["fact_id"]] = fmts
+
     def fmt_bool(v):
         if v is None: return "  -"
         return "  ✓" if v else "  ✗"
@@ -276,13 +315,19 @@ def main():
         print("  Wilson CI: not enough paired data")
         stat_tests["wilson_note"] = "not enough paired data"
     else:
-        lo, hi = wilson_ci(k_fir, n_fir)
+        w_lo, w_hi = wilson_ci(k_fir, n_fir)
+        b_lo, b_hi = bootstrap_fir(facts_correctness_dict)
         fir_pct = k_fir / n_fir if n_fir > 0 else 0.0
-        print(f"  FIR = {k_fir}/{n_fir} = {fir_pct:.1%} [95% CI: {lo:.1%}–{hi:.1%}]")
-        stat_tests["wilson_ci_lo"] = round(lo, 4)
-        stat_tests["wilson_ci_hi"] = round(hi, 4)
+        print(f"  FIR = {k_fir}/{n_fir} = {fir_pct:.1%} "
+              f"[Wilson CI: {w_lo:.1%}–{w_hi:.1%}]"
+              + (f"  [Bootstrap CI: {b_lo:.1%}–{b_hi:.1%}]" if b_lo is not None else ""))
+        stat_tests["wilson_ci_lo"] = round(w_lo, 4)
+        stat_tests["wilson_ci_hi"] = round(w_hi, 4)
         stat_tests["wilson_k"] = k_fir
         stat_tests["wilson_n"] = n_fir
+        stat_tests["fir_wilson_ci"] = [round(w_lo, 4), round(w_hi, 4)]
+        if b_lo is not None:
+            stat_tests["fir_bootstrap_ci"] = [round(b_lo, 4), round(b_hi, 4)]
 
     # ═══════════════════════════════════════════════════════════
     # TASK 1B — McNemar's test: binary vs MCQ on matched test facts
@@ -344,8 +389,96 @@ def main():
     # ── Save metrics.json ──
     out_dir = ROOT / "outputs"
     out_dir.mkdir(parents=True, exist_ok=True)
-    with open(out_dir / "metrics.json", "w") as f:
-        json.dump(metrics, f, indent=2)
+    metrics_path = out_dir / "metrics.json"
+
+    # Load existing metrics to preserve other split's results
+    existing = {}
+    if metrics_path.exists():
+        try:
+            with open(metrics_path) as f:
+                existing = json.load(f)
+        except Exception:
+            existing = {}
+
+    if args.split == "all":
+        # Merge: keep test-split flat keys, add all_facts + split_comparison
+        merged = {k: v for k, v in existing.items()
+                  if k not in ("all_facts", "split_comparison")}
+        merged["all_facts"] = metrics
+
+        # Build side-by-side comparison
+        def _extract_summary(m: dict) -> dict:
+            pf = m.get("per_format", {})
+            fi = m.get("format_instability", {})
+            st = m.get("statistical_tests", {})
+            return {
+                "fir": fi.get("rate"),
+                "unstable_facts": fi.get("unstable_facts"),
+                "facts_with_2plus": fi.get("facts_with_2plus_formats"),
+                "binary_accuracy": pf.get("binary", {}).get("accuracy"),
+                "ternary_accuracy": pf.get("ternary", {}).get("accuracy"),
+                "mcq_accuracy": pf.get("mcq", {}).get("accuracy"),
+                "overall_accuracy": m.get("overall", {}).get("accuracy"),
+                "fir_wilson_ci": st.get("fir_wilson_ci"),
+                "fir_bootstrap_ci": st.get("fir_bootstrap_ci"),
+            }
+
+        merged["split_comparison"] = {
+            "all_facts": _extract_summary(metrics),
+            "test": _extract_summary(existing) if existing else None,
+        }
+
+        # Print side-by-side
+        test_s = merged["split_comparison"]["test"]
+        all_s  = merged["split_comparison"]["all_facts"]
+        print(f"\n── Split comparison ──")
+        col1, col2 = 18, 18
+        header = f"  {'Metric':<20} {'All 50 facts':>{col1}} {'Held-out 15':>{col2}}"
+        print(header)
+        print("  " + "─" * (20 + col1 + col2 + 2))
+
+        def _pct(v): return f"{v*100:.1f}%" if v is not None else "—"
+        rows_cmp = [
+            ("FIR",              _pct(all_s.get("fir")),             _pct((test_s or {}).get("fir"))),
+            ("Binary accuracy",  _pct(all_s.get("binary_accuracy")), _pct((test_s or {}).get("binary_accuracy"))),
+            ("Ternary accuracy", _pct(all_s.get("ternary_accuracy")),_pct((test_s or {}).get("ternary_accuracy"))),
+            ("MCQ accuracy",     _pct(all_s.get("mcq_accuracy")),    _pct((test_s or {}).get("mcq_accuracy"))),
+            ("Overall accuracy", _pct(all_s.get("overall_accuracy")),_pct((test_s or {}).get("overall_accuracy"))),
+        ]
+        for label, a_val, t_val in rows_cmp:
+            print(f"  {label:<20} {a_val:>{col1}} {t_val:>{col2}}")
+
+        if test_s is None:
+            print("\n  (Run evaluate.py --split test first to populate test column)")
+
+        with open(metrics_path, "w") as f:
+            json.dump(merged, f, indent=2)
+    else:
+        # Running test (or other named split): save flat as before + preserve all_facts
+        merged = dict(metrics)
+        if "all_facts" in existing:
+            merged["all_facts"] = existing["all_facts"]
+        if "split_comparison" in existing:
+            merged["split_comparison"] = existing["split_comparison"]
+            # Update test column in split_comparison
+            def _extract_summary_local(m):
+                pf = m.get("per_format", {})
+                fi = m.get("format_instability", {})
+                st = m.get("statistical_tests", {})
+                return {
+                    "fir": fi.get("rate"),
+                    "unstable_facts": fi.get("unstable_facts"),
+                    "facts_with_2plus": fi.get("facts_with_2plus_formats"),
+                    "binary_accuracy": pf.get("binary", {}).get("accuracy"),
+                    "ternary_accuracy": pf.get("ternary", {}).get("accuracy"),
+                    "mcq_accuracy": pf.get("mcq", {}).get("accuracy"),
+                    "overall_accuracy": m.get("overall", {}).get("accuracy"),
+                    "fir_wilson_ci": st.get("fir_wilson_ci"),
+                    "fir_bootstrap_ci": st.get("fir_bootstrap_ci"),
+                }
+            merged["split_comparison"]["test"] = _extract_summary_local(metrics)
+        with open(metrics_path, "w") as f:
+            json.dump(merged, f, indent=2)
 
     # ── Build metrics.md ──
     md_lines = [
@@ -392,6 +525,9 @@ def main():
         md_lines.append(
             f"| Wilson 95% CI on FIR | [{stat_tests['wilson_ci_lo']:.1%}–{stat_tests['wilson_ci_hi']:.1%}] (k={stat_tests['wilson_k']}, n={stat_tests['wilson_n']}) |"
         )
+    if "fir_bootstrap_ci" in stat_tests:
+        b = stat_tests["fir_bootstrap_ci"]
+        md_lines.append(f"| Bootstrap 95% CI on FIR (n=1000, by fact) | [{b[0]:.1%}–{b[1]:.1%}] |")
     if "mcnemar_chi2" in stat_tests:
         md_lines.append(
             f"| McNemar (binary vs MCQ) | b={stat_tests['mcnemar_b']}, c={stat_tests['mcnemar_c']}, χ²={stat_tests['mcnemar_chi2']:.3f}, p={stat_tests['mcnemar_p']:.4f} |"

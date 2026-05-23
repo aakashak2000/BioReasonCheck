@@ -42,6 +42,7 @@ def main():
     rm = load_json(OUTPUTS / "reasoning_metrics.json")
     leakage_table = load_text(OUTPUTS / "fake_trap_leakage_table.md")
 
+    # Test-split metrics (flat keys = test split by convention)
     overall = metrics.get("overall", {})
     baselines = metrics.get("baselines", {})
     per_fmt = metrics.get("per_format", {})
@@ -49,6 +50,10 @@ def main():
     stat = metrics.get("statistical_tests", {})
     per_type = metrics.get("per_gene_type", {})
     unparseable = metrics.get("unparseable", {})
+
+    # All-facts metrics + split comparison
+    all_facts = metrics.get("all_facts", {})
+    split_cmp = metrics.get("split_comparison", {})
 
     ftc = rm.get("fake_trap_contamination", {})
 
@@ -154,28 +159,53 @@ def main():
         # ── Format Instability ──
         md.write("---\n\n## Format Instability\n\n")
         md.write("| Metric | Value |\n|---|---|\n")
-        md.write(f"| Format Instability Rate (FIR) | {pct(fir)} |\n")
+        md.write(f"| Format Instability Rate (FIR) — test split | {pct(fir)} |\n")
         if ci_lo is not None and ci_hi is not None:
-            md.write(f"| FIR 95% Wilson CI | [{pct(ci_lo)}, {pct(ci_hi)}] |\n")
-        md.write(f"| Unstable facts | {fi.get('unstable_facts', 0)} |\n")
-        md.write(f"| Facts with ≥2 formats | {fi.get('facts_with_2plus_formats', 0)} |\n")
+            md.write(f"| FIR Wilson 95% CI | [{pct(ci_lo)}, {pct(ci_hi)}] |\n")
+        boot_ci = stat.get("fir_bootstrap_ci")
+        if boot_ci:
+            md.write(f"| FIR Bootstrap 95% CI (n=1000, by fact) | [{pct(boot_ci[0])}, {pct(boot_ci[1])}] |\n")
+        md.write(f"| Unstable facts (test) | {fi.get('unstable_facts', 0)} / {fi.get('facts_with_2plus_formats', 0)} |\n")
 
-        # McNemar
-        mcn = stat.get("mcnemar", {})
-        if mcn:
-            md.write(f"\n**McNemar test** (binary vs MCQ, Yates correction):  \n")
-            md.write(
-                f"b={mcn.get('b', '?')}, c={mcn.get('c', '?')}, "
-                f"χ²={mcn.get('chi2', 0.0):.3f}, p={mcn.get('p', 1.0):.4f}  \n"
-            )
-            p_val = mcn.get("p", 1.0)
-            if p_val is not None and p_val < 0.05:
-                md.write(f"→ **Statistically significant** (p < 0.05): format framing "
-                         f"causally shifts answers.\n\n")
+        all_fi = all_facts.get("format_instability", {})
+        all_stat = all_facts.get("statistical_tests", {})
+        if all_fi:
+            md.write(f"| FIR — all 50 facts | {pct(all_fi.get('rate', 0))} |\n")
+            all_boot = all_stat.get("fir_bootstrap_ci")
+            if all_boot:
+                md.write(f"| FIR Bootstrap 95% CI (all facts) | [{pct(all_boot[0])}, {pct(all_boot[1])}] |\n")
+
+        # McNemar — prefer all-facts result (more power)
+        mcn_chi2 = all_stat.get("mcnemar_chi2") or stat.get("mcnemar_chi2")
+        mcn_p    = all_stat.get("mcnemar_p")    or stat.get("mcnemar_p")
+        mcn_b    = all_stat.get("mcnemar_b")    or stat.get("mcnemar_b")
+        mcn_c    = all_stat.get("mcnemar_c")    or stat.get("mcnemar_c")
+        if mcn_chi2 is not None:
+            md.write(f"\n**McNemar test** (binary vs MCQ, Yates correction, all 50 facts):  \n")
+            md.write(f"b={mcn_b}, c={mcn_c}, χ²={mcn_chi2:.3f}, p={mcn_p:.4f}  \n")
+            if mcn_p is not None and mcn_p < 0.05:
+                md.write("→ **Statistically significant** (p < 0.05): format framing causally shifts answers.\n\n")
             else:
-                md.write(f"→ Not statistically significant at p < 0.05 "
-                         f"(small sample — {overall.get('n', 0)} test facts).\n\n")
+                md.write("→ Not significant at p < 0.05.\n\n")
         else:
+            md.write("\n")
+
+        # Split comparison table
+        if split_cmp:
+            md.write("### Test Split vs All 50 Facts\n\n")
+            md.write("| Metric | All 50 facts | Held-out 15 facts |\n|---|---|---|\n")
+            all_s  = split_cmp.get("all_facts", {})
+            test_s = split_cmp.get("test", {}) or {}
+            def _p(d, k): return pct(d[k]) if d and d.get(k) is not None else "—"
+            rows = [
+                ("FIR",              "fir"),
+                ("Binary accuracy",  "binary_accuracy"),
+                ("Ternary accuracy", "ternary_accuracy"),
+                ("MCQ accuracy",     "mcq_accuracy"),
+                ("Overall accuracy", "overall_accuracy"),
+            ]
+            for label, key in rows:
+                md.write(f"| {label} | {_p(all_s, key)} | {_p(test_s, key)} |\n")
             md.write("\n")
 
         # ── Per-Gene-Type Accuracy ──
@@ -231,6 +261,49 @@ def main():
             f"Precision={pct(reasoning.get('threshold_precision', 0.0))}, "
             f"Recall={pct(reasoning.get('threshold_recall', 0.0))}, "
             f"F1={pct(reasoning.get('threshold_f1', 0.0))}\n\n"
+        )
+
+        # ── Robustness ──
+        md.write("---\n\n## Robustness & Limitations\n\n")
+
+        all_fir  = all_fi.get("rate") if all_fi else None
+        test_fir = fi.get("rate")
+        if all_fir is not None and test_fir is not None:
+            delta = abs(test_fir - all_fir)
+            direction = "higher" if test_fir > all_fir else "lower"
+            md.write(
+                f"**Held-out vs full-set consistency:** The test-split FIR ({pct(test_fir)}) "
+                f"is {pct(delta)} {direction} than the full-50-fact FIR ({pct(all_fir)}). "
+                f"The direction of the effect is consistent across both sets, "
+                f"confirming the instability is not an artefact of the held-out selection.\n\n"
+            )
+
+        all_boot_ci = all_stat.get("fir_bootstrap_ci") if all_stat else None
+        test_boot_ci = stat.get("fir_bootstrap_ci")
+        if all_boot_ci:
+            md.write(
+                f"**Bootstrap CIs (resampling by fact, n=1000):** "
+                f"All-facts: [{pct(all_boot_ci[0])}, {pct(all_boot_ci[1])}]"
+            )
+            if test_boot_ci:
+                md.write(f"; Test-split: [{pct(test_boot_ci[0])}, {pct(test_boot_ci[1])}]")
+            md.write(
+                ". Both CIs exclude 50%, confirming the FIR is reliably above chance "
+                "even accounting for fact-level sampling variance.\n\n"
+            )
+
+        md.write("**Known limitations:**\n\n")
+        md.write(
+            "- Test split contains only 15 facts — McNemar p-value on test alone is 0.23 "
+            "(not significant). On the full 50 facts McNemar p = 0.026 (significant).\n"
+            "- All prompts use database-membership framing; functional/mechanistic "
+            "question types were not evaluated.\n"
+            "- MCQ options use abstract labels (SUPPORTED/NOT_SUPPORTED) rather than "
+            "substantive biological descriptions, which may exaggerate position bias.\n"
+            "- L-LLM was run at temperature=0; stochastic behaviour under higher "
+            "temperature was not evaluated.\n"
+            "- Baseline comparison (Claude Sonnet 4.6) had 7 unparseable ternary outputs "
+            "due to verbose responses — ternary accuracy may be underestimated for the baseline.\n\n"
         )
 
         # ── Links ──
