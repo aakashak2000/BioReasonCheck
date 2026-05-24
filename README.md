@@ -1,103 +1,123 @@
 # BioReasonCheck-FI
 
-**Track 01 · Insilico Medicine Hackathon**
+**Format instability benchmark for LongevityLLM · Hackathon 2025 Track 01**
 
-Benchmarking LongevityLLM (L-LLM) for **format instability** on aging-gene factual claims.
+> **Key finding:** LongevityLLM answers the same biological claim differently in **14 of 15 cases** when the question format changes from binary → ternary → MCQ.  
+> Format Instability Rate = **93.3%** [Bootstrap CI: 80%–100%]
 
-## Overview
+---
 
-We pose the same biological claim in three question formats — binary YES/NO, ternary 3-class, and MCQ — and measure how often LongevityLLM gives contradictory answers based on format framing alone.
+## Results at a glance
 
-**Headline result:** Format Instability Rate (FIR) = **93.3%** of test facts answered differently across formats.
+| Metric | Value |
+|---|---|
+| Format Instability Rate (test) | **93.3%** |
+| Binary accuracy | 67% |
+| Ternary accuracy | 47% |
+| MCQ accuracy | 33% |
+| Majority-class baseline | 47% |
+| L-LLM vs Claude Sonnet 4.6 FIR | 74% vs 40% |
 
-## Repository Structure
+Pre-computed results are in `outputs/`. You can read them without running anything.
 
-```
-scripts/
-  pipeline.py           Build benchmark from CellAge + OpenGenes raw data
-  run_llm.py            Run benchmark against L-LLM endpoint
-  evaluate.py           Compute accuracy, FIR, Wilson CI, McNemar, per-gene-type
-  score_reasoning.py    Score reasoning traces; fake-trap contamination analysis
-  make_failure_gallery.py  Generate curated failure examples
-  make_report.py        Assemble final_report.md from all artefacts
-
-data/
-  raw/                  cellage.csv, opengenes.csv, gene-criteria.tsv, ...
-  processed/            benchmark.jsonl (150 prompts), facts.csv, benchmark_claims.csv
-
-outputs/
-  model_outputs.jsonl   Raw model predictions (150 rows)
-  traces_ternary.jsonl  Reasoning traces, ternary only (50 rows)
-  metrics.json          Full evaluation metrics
-  metrics.md            Human-readable metrics report
-  reasoning_scores.jsonl  Per-row reasoning scores
-  reasoning_metrics.json  Fake-trap contamination metrics
-  failure_gallery.md    Curated failure examples by category
-  final_report.md       Complete evaluation report
-```
+---
 
 ## Setup
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
+git clone https://github.com/aakashak2000/BioReasonCheck.git
+cd BioReasonCheck
+python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env   # fill in HF_ENDPOINT_URL and HF_ACCESS_TOKEN
+
+cp .env.example .env
+# Fill in HF_ENDPOINT_URL and HF_ACCESS_TOKEN in .env
 ```
 
-## Running the Full Pipeline
+---
+
+## Reproduce from scratch
 
 ```bash
-# 1. Build benchmark dataset
+# 1. Build benchmark dataset (50 facts × 3 formats = 150 prompts)
 python scripts/pipeline.py
 
-# 2. Run model on all 150 prompts
+# 2. Run LongevityLLM on all 150 prompts
 python scripts/run_llm.py
 
-# 3. (Optional) Collect reasoning traces on ternary format
+# 3. (Optional) Collect reasoning traces — ternary format only, think mode on
 python scripts/run_llm.py --think --format-filter ternary \
     --output outputs/traces_ternary.jsonl
 
-# 4. Evaluate and score
+# 4. Evaluate
 python scripts/evaluate.py
-python scripts/score_reasoning.py --outputs outputs/traces_ternary.jsonl \
+python scripts/evaluate.py --split all
+
+# 5. Score reasoning traces
+python scripts/score_reasoning.py \
+    --outputs outputs/traces_ternary.jsonl \
     --out outputs/reasoning_scores.jsonl
 
-# 5. Generate reports
+# 6. Deep-dive analyses
+python scripts/analyze_label_bias.py
+python scripts/analyze_gene_category.py
+python scripts/analyze_mcq_position.py
+python scripts/analyze_trace_errors.py
+
+# 7. Generate final report
 python scripts/make_failure_gallery.py
 python scripts/make_report.py
 ```
 
 ---
 
-## Final Analysis Commands
+## Repository structure
 
-Run these four scripts in order after `run_llm.py` has completed to reproduce all evaluation artefacts:
+```
+scripts/
+  pipeline.py               Build benchmark from CellAge + OpenGenes raw data
+  run_llm.py                Query LongevityLLM endpoint (150 prompts)
+  evaluate.py               FIR, accuracy, Wilson CI, McNemar, bootstrap CI
+  score_reasoning.py        Score reasoning traces; fake-trap contamination
+  analyze_label_bias.py     Label distribution, FP/FN rates, flip matrix
+  analyze_gene_category.py  Per-gene-type accuracy + FIR
+  analyze_mcq_position.py   MCQ position bias + chi-square test
+  analyze_trace_errors.py   Process-as-gene, consistency mismatch taxonomy
+  run_baseline_model.py     Compare vs any OpenAI-compatible baseline
+  make_failure_gallery.py   Curated failure examples by category
+  make_report.py            Assemble outputs/final_report.md
 
-```bash
-# Step 1 — Compute accuracy, FIR, Wilson CI, McNemar test, per-gene-type breakdown
-python scripts/evaluate.py
+data/
+  raw/                      CellAge, OpenGenes source files
+  processed/                benchmark.jsonl, facts.csv (pre-built)
 
-# Step 2 — Score reasoning traces; quantify fake-trap hallucination contamination
-python scripts/score_reasoning.py \
-    --outputs outputs/traces_ternary.jsonl \
-    --out outputs/reasoning_scores.jsonl
-
-# Step 3 — Build failure gallery (format flips, hallucinations, consistent errors)
-python scripts/make_failure_gallery.py
-
-# Step 4 — Assemble final report from all artefacts
-python scripts/make_report.py
+outputs/                    All pre-computed results (metrics, traces, reports)
 ```
 
-**Expected outputs after running all four:**
+---
 
-| File | Description |
-|---|---|
-| `outputs/metrics.json` | Accuracy, FIR, Wilson CI, McNemar, per-gene-type |
-| `outputs/metrics.md` | Human-readable version of metrics.json |
-| `outputs/reasoning_scores.jsonl` | Per-row hallucination/consistency/composite scores |
-| `outputs/reasoning_metrics.json` | Fake-trap contamination counts and leakage rate |
-| `outputs/fake_trap_leakage_table.md` | Per-symbol leakage table |
-| `outputs/failure_gallery.md` | Curated failure examples by category |
-| `outputs/final_report.md` | Complete evaluation report |
+## Benchmark design
+
+**50 facts** across 4 gene categories:
+
+| Category | N facts | Gold label | Description |
+|---|---|---|---|
+| CellAge senescence genes | 15 | SUPPORTED | Real aging genes |
+| OpenGenes lifespan-extending | 10 | SUPPORTED | High-confidence longevity genes |
+| OpenGenes mixed evidence | 5 | INSUFFICIENT_EVIDENCE | Contradictory findings |
+| Hard negatives (housekeeping) | 15 | NOT_SUPPORTED | Real genes, no aging link |
+| Fake traps | 5 | NOT_SUPPORTED | Invented gene symbols |
+
+Each fact posed in 3 formats → **150 total prompts**. Train/test split: 35/15 facts.
+
+---
+
+## Baseline comparison
+
+Set `BASELINE_ENDPOINT_URL`, `BASELINE_API_TOKEN`, and `BASELINE_MODEL_NAME` in `.env`, then:
+
+```bash
+python scripts/run_baseline_model.py
+```
+
+Supports any OpenAI-compatible endpoint and the Anthropic API.
