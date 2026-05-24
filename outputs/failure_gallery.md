@@ -1,4 +1,4 @@
-# BioReasonCheck-FI — Failure Gallery
+# BioReasonCheck — Failure Gallery
 
 This gallery catalogues three categories of model failure. All examples come from the held-out **test** split unless otherwise noted.
 

@@ -1,5 +1,5 @@
 """
-BioReasonCheck-FI · analyze_gene_category.py
+BioReasonCheck · analyze_gene_category.py
 Per-gene-type accuracy and FIR breakdown, plus hard-negative hallucination cases.
 """
 import argparse

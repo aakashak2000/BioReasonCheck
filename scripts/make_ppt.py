@@ -1,7 +1,7 @@
 """
-Generate BioReasonCheck-FI pitch deck as a PowerPoint file.
+Generate BioReasonCheck pitch deck as a PowerPoint file.
 Usage: python scripts/make_ppt.py
-Output: outputs/BioReasonCheck_FI.pptx
+Output: outputs/BioReasonCheck.pptx
 """
 
 from pptx import Presentation
@@ -118,7 +118,7 @@ def slide_title(prs):
     # Centered project name
     add_textbox(slide,
                 Inches(1), Inches(1.8), Inches(11.33), Inches(1.1),
-                "BioReasonCheck-FI", 48, bold=True,
+                "BioReasonCheck", 48, bold=True,
                 color=ACCENT, align=PP_ALIGN.CENTER)
 
     add_textbox(slide,
@@ -412,7 +412,7 @@ def slide_scorer_recs(prs):
 # MAIN
 # ─────────────────────────────────────────────────────────────────────────────
 def main():
-    out_path = os.path.join(os.path.dirname(__file__), "..", "outputs", "BioReasonCheck_FI.pptx")
+    out_path = os.path.join(os.path.dirname(__file__), "..", "outputs", "BioReasonCheck.pptx")
     prs = new_prs()
 
     slide_title(prs)

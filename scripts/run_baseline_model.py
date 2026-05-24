@@ -1,5 +1,5 @@
 """
-BioReasonCheck-FI · run_baseline_model.py
+BioReasonCheck · run_baseline_model.py
 Run the test-split benchmark prompts against a baseline model (any
 OpenAI-compatible chat completions endpoint) and compare with L-LLM results.
 

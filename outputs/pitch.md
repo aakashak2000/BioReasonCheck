@@ -1,4 +1,4 @@
-# BioReasonCheck-FI — Pitch Deck
+# BioReasonCheck — Pitch Deck
 ## Track 01 · Insilico Medicine Hackathon 2026
 **Total time: 5 minutes**
 

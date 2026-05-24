@@ -1,5 +1,5 @@
 """
-BioReasonCheck-FI · pipeline.py
+BioReasonCheck · pipeline.py
 Builds: cellage_ref.csv, opengenes_ref.csv, valid_genes.csv,
         facts.csv, benchmark_claims.csv, benchmark.jsonl
 """
@@ -491,7 +491,7 @@ def step6_benchmark_jsonl(claims: pd.DataFrame, dry_run: bool) -> None:
 # ─────────────────────────── main ────────────────────────────────────────────
 
 def main():
-    parser = argparse.ArgumentParser(description="BioReasonCheck-FI pipeline")
+    parser = argparse.ArgumentParser(description="BioReasonCheck pipeline")
     parser.add_argument("--cellage-gene-col", default=None,
                         help="Override auto-detected CellAge gene column name")
     parser.add_argument("--opengenes-gene-col", default=None,

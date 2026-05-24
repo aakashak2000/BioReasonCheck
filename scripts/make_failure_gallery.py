@@ -1,5 +1,5 @@
 """
-BioReasonCheck-FI · make_failure_gallery.py
+BioReasonCheck · make_failure_gallery.py
 Generates outputs/failure_gallery.md — a curated table of model failures
 organised by failure type.
 
@@ -118,7 +118,7 @@ def main():
     # ── Write gallery ──
     gallery_path = OUTPUTS / "failure_gallery.md"
     with open(gallery_path, "w", encoding="utf-8") as md:
-        md.write("# BioReasonCheck-FI — Failure Gallery\n\n")
+        md.write("# BioReasonCheck — Failure Gallery\n\n")
         md.write(
             "This gallery catalogues three categories of model failure. "
             "All examples come from the held-out **test** split unless "

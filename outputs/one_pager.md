@@ -1,4 +1,4 @@
-# BioReasonCheck-FI
+# BioReasonCheck
 ### Format Instability Benchmark for LongevityLLM
 **Track 01 · Insilico Medicine Hackathon 2026**
 

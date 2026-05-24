@@ -1,4 +1,4 @@
-# BioReasonCheck-FI — Final Evaluation Report
+# BioReasonCheck — Final Evaluation Report
 
 _Generated: 2026-05-24_
 
@@ -40,7 +40,7 @@ The benchmark was constructed to evaluate L-LLM on aging-gene factual claims acr
 
 ### 2.1 Diversity Across Three Axes
 
-A well-designed benchmark must vary along multiple axes so that any observed failure can be attributed to a specific cause rather than a confound in the data design. BioReasonCheck-FI is diverse across three axes:
+A well-designed benchmark must vary along multiple axes so that any observed failure can be attributed to a specific cause rather than a confound in the data design. BioReasonCheck is diverse across three axes:
 
 **Data diversity.** The 60 genes span five categories that cover the full spectrum from confirmed biological signal to deliberate traps. CellAge-confirmed senescence genes represent clear positives where the ground truth is unambiguous. OpenGenes lifespan-extending genes represent experimentally validated signal from a different database with a different methodology. Mixed-evidence genes from OpenGenes represent genuinely uncertain cases where the right answer requires reasoning about evidence quality rather than simple retrieval. Metabolic hard negatives (e.g., GAPDH) are real, well-characterised genes with no aging connection — they test false positive rate. Invented symbols (e.g., AGEX1) have zero training signal by construction and test whether the model will hallucinate confident answers about entities that do not exist.
 
@@ -305,7 +305,7 @@ This error pattern is systematic across genes and claims, suggesting it is a pro
 
 LongevityLLM is being positioned as a knowledge source for aging biology research — a model that can answer factual questions about genes, their roles in aging, and their presence in specialist databases. Researchers and automated tools query such a model in many different ways: a conversational interface asks binary questions, a structured pipeline requests ternary labels, a screening tool presents multiple-choice options. The implicit assumption is that a model with reliable biological knowledge will give consistent answers regardless of how the question is framed, because the biology does not change.
 
-BioReasonCheck-FI demonstrates that this assumption is false for L-LLM. The model's answer depends more on the shape of the question than on the biological content of the claim. Cramér's V = 0.760 quantifies this directly: the format of the prompt is a stronger predictor of which label the model assigns than the gene being queried. A model that behaves this way is not a knowledge source — it is a format matcher.
+BioReasonCheck demonstrates that this assumption is false for L-LLM. The model's answer depends more on the shape of the question than on the biological content of the claim. Cramér's V = 0.760 quantifies this directly: the format of the prompt is a stronger predictor of which label the model assigns than the gene being queried. A model that behaves this way is not a knowledge source — it is a format matcher.
 
 The practical consequence is that different tools querying L-LLM about the same gene in different formats will receive contradictory verdicts. A gene correctly identified as aging-related by a binary API call may be dismissed as unsupported by a ternary classifier, and vice versa. These contradictions are silent — no error is raised, no uncertainty is flagged — and they propagate into downstream decisions.
 

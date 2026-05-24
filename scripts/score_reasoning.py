@@ -1,5 +1,5 @@
 """
-BioReasonCheck-FI · score_reasoning.py
+BioReasonCheck · score_reasoning.py
 Scores L-LLM reasoning traces to predict when the model gets answers wrong.
 
 Signals:

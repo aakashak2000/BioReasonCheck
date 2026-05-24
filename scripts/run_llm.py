@@ -1,5 +1,5 @@
 """
-BioReasonCheck-FI · run_llm.py
+BioReasonCheck · run_llm.py
 Runs benchmark.jsonl against the L-LLM endpoint and saves model_outputs.jsonl.
 """
 import argparse

@@ -1,5 +1,5 @@
 """
-BioReasonCheck-FI · analyze_mcq_position.py
+BioReasonCheck · analyze_mcq_position.py
 MCQ position bias: accuracy by correct-option position, model letter selection
 distribution, and chi-square test for uniform selection.
 """

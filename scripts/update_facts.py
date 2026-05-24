@@ -1,5 +1,5 @@
 """
-BioReasonCheck-FI · update_facts.py
+BioReasonCheck · update_facts.py
 Applies 5 corrections to data/processed/facts.csv:
   1. Replace MTOR (F022) with FOXO3
   2. Fix og_mixed claim template

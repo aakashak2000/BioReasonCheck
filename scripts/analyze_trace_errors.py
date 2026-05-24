@@ -1,5 +1,5 @@
 """
-BioReasonCheck-FI · analyze_trace_errors.py
+BioReasonCheck · analyze_trace_errors.py
 Trace error taxonomy: process-as-gene, consistency mismatch,
 source misattribution, and fake-trap bleed.
 

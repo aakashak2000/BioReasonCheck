@@ -1,5 +1,5 @@
 """
-BioReasonCheck-FI · evaluate.py
+BioReasonCheck · evaluate.py
 Computes accuracy, macro F1, balanced accuracy, confusion matrix,
 per-format metrics, format instability rate, Wilson CI, McNemar test,
 and per-gene-type accuracy breakdown.
@@ -610,7 +610,7 @@ def main():
 
     # ── Build metrics.md ──
     md_lines = [
-        "# BioReasonCheck-FI · Evaluation Report",
+        "# BioReasonCheck · Evaluation Report",
         f"\n**Split:** {args.split}  |  **Total rows:** {len(df)}  |  **UNPARSEABLE:** {unp}",
         "\n## Headline Metric: Format Instability Rate",
         "\n| Metric | Value |",

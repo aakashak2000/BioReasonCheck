@@ -1,5 +1,5 @@
 """
-BioReasonCheck-FI · analyze_label_bias.py
+BioReasonCheck · analyze_label_bias.py
 Label distribution bias, false-positive/negative rates, and
 binary→MCQ transition matrix for unstable facts.
 """

@@ -1,5 +1,5 @@
 """
-BioReasonCheck-FI · make_report.py
+BioReasonCheck · make_report.py
 Assembles outputs/final_report.md from all computed artefacts.
 
 Implements Tasks 1-5:
@@ -281,7 +281,7 @@ def main():
     checks = 0
 
     with open(report_path, "w", encoding="utf-8") as md:
-        md.write(f"# BioReasonCheck-FI — Final Evaluation Report\n\n")
+        md.write(f"# BioReasonCheck — Final Evaluation Report\n\n")
         md.write(f"_Generated: {date.today().isoformat()}_\n\n")
         md.write(
             "> **Track 01 · Insilico Medicine Hackathon**  \n"
@@ -632,7 +632,7 @@ def main():
             "stages — target identification, evidence synthesis, and candidate prioritization — "
             "by tools that use different interface formats. A binary API call, a structured "
             "ternary classifier, and a multiple-choice screening form may all query the same "
-            "underlying biological fact. BioReasonCheck-FI demonstrates that L-LLM's answer to "
+            "underlying biological fact. BioReasonCheck demonstrates that L-LLM's answer to "
             "those queries depends more on question format than on biological content. A gene "
             "correctly identified as aging-related in one interface may be dismissed as "
             "unsupported in another, introducing silent inconsistencies into downstream decisions. "

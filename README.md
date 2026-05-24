@@ -1,4 +1,4 @@
-# BioReasonCheck-FI
+# BioReasonCheck
 
 **Format instability benchmark for LongevityLLM · Hackathon 2025 Track 01**
 
