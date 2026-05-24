@@ -272,18 +272,18 @@ B. AGEX1 is listed in OpenGenes as a gene whose activity extends mammalian lifes
 C. CISD2 is a general metabolic gene with no aging annotation.
 D. The stated database does not contain an entry for CISD2.
 Answer with exactly one letter: A, B, C, or D."
-F022,MTOR,OpenGenes,og_extending,SUPPORTED,MTOR is listed in OpenGenes as a gene whose activity extends mammalian lifespan.,train,F022_binary,binary,YES,,"Is the following claim supported by the stated database?
-Claim: MTOR is listed in OpenGenes as a gene whose activity extends mammalian lifespan.
+F022,FOXO3,OpenGenes,og_extending,SUPPORTED,FOXO3 is listed in OpenGenes as a gene whose activity extends mammalian lifespan.,train,F022_binary,binary,YES,,"Is the following claim supported by the stated database?
+Claim: FOXO3 is listed in OpenGenes as a gene whose activity extends mammalian lifespan.
 Answer with exactly one word: YES or NO."
-F022,MTOR,OpenGenes,og_extending,SUPPORTED,MTOR is listed in OpenGenes as a gene whose activity extends mammalian lifespan.,train,F022_ternary,ternary,SUPPORTED,,"Evaluate the following claim about aging biology.
-Claim: MTOR is listed in OpenGenes as a gene whose activity extends mammalian lifespan.
+F022,FOXO3,OpenGenes,og_extending,SUPPORTED,FOXO3 is listed in OpenGenes as a gene whose activity extends mammalian lifespan.,train,F022_ternary,ternary,SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: FOXO3 is listed in OpenGenes as a gene whose activity extends mammalian lifespan.
 Answer with exactly one of these three labels on the final line:
 SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
-F022,MTOR,OpenGenes,og_extending,SUPPORTED,MTOR is listed in OpenGenes as a gene whose activity extends mammalian lifespan.,train,F022_mcq,mcq,SUPPORTED,B,"Which of the following statements is supported by OpenGenes?
+F022,FOXO3,OpenGenes,og_extending,SUPPORTED,FOXO3 is listed in OpenGenes as a gene whose activity extends mammalian lifespan.,train,F022_mcq,mcq,SUPPORTED,B,"Which of the following statements is supported by OpenGenes?
 A. LNVT3 is listed in OpenGenes as a gene whose activity extends mammalian lifespan.
-B. MTOR is listed in OpenGenes as a gene whose activity extends mammalian lifespan.
-C. MTOR is a general metabolic gene with no aging annotation.
-D. The stated database does not contain an entry for MTOR.
+B. FOXO3 is listed in OpenGenes as a gene whose activity extends mammalian lifespan.
+C. FOXO3 is a general metabolic gene with no aging annotation.
+D. The stated database does not contain an entry for FOXO3.
 Answer with exactly one letter: A, B, C, or D."
 F023,IGF1,OpenGenes,og_extending,SUPPORTED,IGF1 is listed in OpenGenes as a gene whose activity extends mammalian lifespan.,test,F023_binary,binary,YES,,"Is the following claim supported by the stated database?
 Claim: IGF1 is listed in OpenGenes as a gene whose activity extends mammalian lifespan.
@@ -324,68 +324,68 @@ B. TERT2B is listed in OpenGenes as a gene whose activity extends mammalian life
 C. GSTA4 is a general metabolic gene with no aging annotation.
 D. The stated database does not contain an entry for GSTA4.
 Answer with exactly one letter: A, B, C, or D."
-F026,EEF2,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,EEF2 is listed in OpenGenes as associated with aging (confidence: moderate).,test,F026_binary,binary,NO,,"Is the following claim supported by the stated database?
-Claim: EEF2 is listed in OpenGenes as associated with aging (confidence: moderate).
+F026,EEF2,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"EEF2 has consistent, well-supported evidence of lifespan extension in OpenGenes.",test,F026_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: EEF2 has consistent, well-supported evidence of lifespan extension in OpenGenes.
 Answer with exactly one word: YES or NO."
-F026,EEF2,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,EEF2 is listed in OpenGenes as associated with aging (confidence: moderate).,test,F026_ternary,ternary,INSUFFICIENT_EVIDENCE,,"Evaluate the following claim about aging biology.
-Claim: EEF2 is listed in OpenGenes as associated with aging (confidence: moderate).
+F026,EEF2,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"EEF2 has consistent, well-supported evidence of lifespan extension in OpenGenes.",test,F026_ternary,ternary,INSUFFICIENT_EVIDENCE,,"Evaluate the following claim about aging biology.
+Claim: EEF2 has consistent, well-supported evidence of lifespan extension in OpenGenes.
 Answer with exactly one of these three labels on the final line:
 SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
-F026,EEF2,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,EEF2 is listed in OpenGenes as associated with aging (confidence: moderate).,test,F026_mcq,mcq,INSUFFICIENT_EVIDENCE,B,"Which of the following statements is supported by OpenGenes?
-A. AGEX1 is listed in OpenGenes as associated with aging (confidence: moderate).
-B. EEF2 is listed in OpenGenes as associated with aging (confidence: moderate).
+F026,EEF2,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"EEF2 has consistent, well-supported evidence of lifespan extension in OpenGenes.",test,F026_mcq,mcq,INSUFFICIENT_EVIDENCE,B,"Which of the following statements is supported by OpenGenes?
+A. AGEX1 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+B. EEF2 has consistent, well-supported evidence of lifespan extension in OpenGenes.
 C. EEF2 is a general metabolic gene with no aging annotation.
 D. The stated database does not contain an entry for EEF2.
 Answer with exactly one letter: A, B, C, or D."
-F027,PRKAR2B,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,PRKAR2B is listed in OpenGenes as associated with aging (confidence: high).,train,F027_binary,binary,NO,,"Is the following claim supported by the stated database?
-Claim: PRKAR2B is listed in OpenGenes as associated with aging (confidence: high).
+F027,PRKAR2B,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"PRKAR2B has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F027_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: PRKAR2B has consistent, well-supported evidence of lifespan extension in OpenGenes.
 Answer with exactly one word: YES or NO."
-F027,PRKAR2B,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,PRKAR2B is listed in OpenGenes as associated with aging (confidence: high).,train,F027_ternary,ternary,INSUFFICIENT_EVIDENCE,,"Evaluate the following claim about aging biology.
-Claim: PRKAR2B is listed in OpenGenes as associated with aging (confidence: high).
+F027,PRKAR2B,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"PRKAR2B has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F027_ternary,ternary,INSUFFICIENT_EVIDENCE,,"Evaluate the following claim about aging biology.
+Claim: PRKAR2B has consistent, well-supported evidence of lifespan extension in OpenGenes.
 Answer with exactly one of these three labels on the final line:
 SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
-F027,PRKAR2B,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,PRKAR2B is listed in OpenGenes as associated with aging (confidence: high).,train,F027_mcq,mcq,INSUFFICIENT_EVIDENCE,C,"Which of the following statements is supported by OpenGenes?
-A. LNVT3 is listed in OpenGenes as associated with aging (confidence: high).
+F027,PRKAR2B,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"PRKAR2B has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F027_mcq,mcq,INSUFFICIENT_EVIDENCE,C,"Which of the following statements is supported by OpenGenes?
+A. LNVT3 has consistent, well-supported evidence of lifespan extension in OpenGenes.
 B. PRKAR2B is a general metabolic gene with no aging annotation.
-C. PRKAR2B is listed in OpenGenes as associated with aging (confidence: high).
+C. PRKAR2B has consistent, well-supported evidence of lifespan extension in OpenGenes.
 D. The stated database does not contain an entry for PRKAR2B.
 Answer with exactly one letter: A, B, C, or D."
-F028,G6PD,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,G6PD is listed in OpenGenes as associated with aging (confidence: high).,train,F028_binary,binary,NO,,"Is the following claim supported by the stated database?
-Claim: G6PD is listed in OpenGenes as associated with aging (confidence: high).
+F028,G6PD,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"G6PD has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F028_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: G6PD has consistent, well-supported evidence of lifespan extension in OpenGenes.
 Answer with exactly one word: YES or NO."
-F028,G6PD,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,G6PD is listed in OpenGenes as associated with aging (confidence: high).,train,F028_ternary,ternary,INSUFFICIENT_EVIDENCE,,"Evaluate the following claim about aging biology.
-Claim: G6PD is listed in OpenGenes as associated with aging (confidence: high).
+F028,G6PD,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"G6PD has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F028_ternary,ternary,INSUFFICIENT_EVIDENCE,,"Evaluate the following claim about aging biology.
+Claim: G6PD has consistent, well-supported evidence of lifespan extension in OpenGenes.
 Answer with exactly one of these three labels on the final line:
 SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
-F028,G6PD,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,G6PD is listed in OpenGenes as associated with aging (confidence: high).,train,F028_mcq,mcq,INSUFFICIENT_EVIDENCE,D,"Which of the following statements is supported by OpenGenes?
-A. SNRP9X is listed in OpenGenes as associated with aging (confidence: high).
+F028,G6PD,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"G6PD has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F028_mcq,mcq,INSUFFICIENT_EVIDENCE,D,"Which of the following statements is supported by OpenGenes?
+A. SNRP9X has consistent, well-supported evidence of lifespan extension in OpenGenes.
 B. G6PD is a general metabolic gene with no aging annotation.
 C. The stated database does not contain an entry for G6PD.
-D. G6PD is listed in OpenGenes as associated with aging (confidence: high).
+D. G6PD has consistent, well-supported evidence of lifespan extension in OpenGenes.
 Answer with exactly one letter: A, B, C, or D."
-F029,TOPORS,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,TOPORS is listed in OpenGenes as associated with aging (confidence: high).,test,F029_binary,binary,NO,,"Is the following claim supported by the stated database?
-Claim: TOPORS is listed in OpenGenes as associated with aging (confidence: high).
+F029,TOPORS,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"TOPORS has consistent, well-supported evidence of lifespan extension in OpenGenes.",test,F029_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: TOPORS has consistent, well-supported evidence of lifespan extension in OpenGenes.
 Answer with exactly one word: YES or NO."
-F029,TOPORS,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,TOPORS is listed in OpenGenes as associated with aging (confidence: high).,test,F029_ternary,ternary,INSUFFICIENT_EVIDENCE,,"Evaluate the following claim about aging biology.
-Claim: TOPORS is listed in OpenGenes as associated with aging (confidence: high).
+F029,TOPORS,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"TOPORS has consistent, well-supported evidence of lifespan extension in OpenGenes.",test,F029_ternary,ternary,INSUFFICIENT_EVIDENCE,,"Evaluate the following claim about aging biology.
+Claim: TOPORS has consistent, well-supported evidence of lifespan extension in OpenGenes.
 Answer with exactly one of these three labels on the final line:
 SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
-F029,TOPORS,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,TOPORS is listed in OpenGenes as associated with aging (confidence: high).,test,F029_mcq,mcq,INSUFFICIENT_EVIDENCE,A,"Which of the following statements is supported by OpenGenes?
-A. TOPORS is listed in OpenGenes as associated with aging (confidence: high).
-B. FOXQ7L is listed in OpenGenes as associated with aging (confidence: high).
+F029,TOPORS,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"TOPORS has consistent, well-supported evidence of lifespan extension in OpenGenes.",test,F029_mcq,mcq,INSUFFICIENT_EVIDENCE,A,"Which of the following statements is supported by OpenGenes?
+A. TOPORS has consistent, well-supported evidence of lifespan extension in OpenGenes.
+B. FOXQ7L has consistent, well-supported evidence of lifespan extension in OpenGenes.
 C. TOPORS is a general metabolic gene with no aging annotation.
 D. The stated database does not contain an entry for TOPORS.
 Answer with exactly one letter: A, B, C, or D."
-F030,SIRT4,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,SIRT4 is listed in OpenGenes as associated with aging (confidence: moderate).,train,F030_binary,binary,NO,,"Is the following claim supported by the stated database?
-Claim: SIRT4 is listed in OpenGenes as associated with aging (confidence: moderate).
+F030,SIRT4,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"SIRT4 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F030_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: SIRT4 has consistent, well-supported evidence of lifespan extension in OpenGenes.
 Answer with exactly one word: YES or NO."
-F030,SIRT4,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,SIRT4 is listed in OpenGenes as associated with aging (confidence: moderate).,train,F030_ternary,ternary,INSUFFICIENT_EVIDENCE,,"Evaluate the following claim about aging biology.
-Claim: SIRT4 is listed in OpenGenes as associated with aging (confidence: moderate).
+F030,SIRT4,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"SIRT4 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F030_ternary,ternary,INSUFFICIENT_EVIDENCE,,"Evaluate the following claim about aging biology.
+Claim: SIRT4 has consistent, well-supported evidence of lifespan extension in OpenGenes.
 Answer with exactly one of these three labels on the final line:
 SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
-F030,SIRT4,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,SIRT4 is listed in OpenGenes as associated with aging (confidence: moderate).,train,F030_mcq,mcq,INSUFFICIENT_EVIDENCE,B,"Which of the following statements is supported by OpenGenes?
-A. TERT2B is listed in OpenGenes as associated with aging (confidence: moderate).
-B. SIRT4 is listed in OpenGenes as associated with aging (confidence: moderate).
+F030,SIRT4,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"SIRT4 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F030_mcq,mcq,INSUFFICIENT_EVIDENCE,B,"Which of the following statements is supported by OpenGenes?
+A. TERT2B has consistent, well-supported evidence of lifespan extension in OpenGenes.
+B. SIRT4 has consistent, well-supported evidence of lifespan extension in OpenGenes.
 C. SIRT4 is a general metabolic gene with no aging annotation.
 D. The stated database does not contain an entry for SIRT4.
 Answer with exactly one letter: A, B, C, or D."
@@ -584,27 +584,27 @@ B. TERT2B is listed as a cellular senescence gene in CellAge.
 C. SDHA is a general metabolic gene with no aging annotation.
 D. The stated database does not contain an entry for SDHA.
 Answer with exactly one letter: A, B, C, or D."
-F046,AGEX1,CellAge,fake_trap,NOT_SUPPORTED,AGEX1 is listed as a cellular senescence gene in CellAge.,train,F046_binary,binary,NO,,"Is the following claim supported by the stated database?
+F046,AGEX1,CellAge,fake_trap,NOT_SUPPORTED,AGEX1 is listed as a cellular senescence gene in CellAge.,test,F046_binary,binary,NO,,"Is the following claim supported by the stated database?
 Claim: AGEX1 is listed as a cellular senescence gene in CellAge.
 Answer with exactly one word: YES or NO."
-F046,AGEX1,CellAge,fake_trap,NOT_SUPPORTED,AGEX1 is listed as a cellular senescence gene in CellAge.,train,F046_ternary,ternary,NOT_SUPPORTED,,"Evaluate the following claim about aging biology.
+F046,AGEX1,CellAge,fake_trap,NOT_SUPPORTED,AGEX1 is listed as a cellular senescence gene in CellAge.,test,F046_ternary,ternary,NOT_SUPPORTED,,"Evaluate the following claim about aging biology.
 Claim: AGEX1 is listed as a cellular senescence gene in CellAge.
 Answer with exactly one of these three labels on the final line:
 SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
-F046,AGEX1,CellAge,fake_trap,NOT_SUPPORTED,AGEX1 is listed as a cellular senescence gene in CellAge.,train,F046_mcq,mcq,NOT_SUPPORTED,B,"Which of the following statements is supported by CellAge?
+F046,AGEX1,CellAge,fake_trap,NOT_SUPPORTED,AGEX1 is listed as a cellular senescence gene in CellAge.,test,F046_mcq,mcq,NOT_SUPPORTED,B,"Which of the following statements is supported by CellAge?
 A. AGEX1 is listed as a cellular senescence gene in CellAge.
 B. AGEX1 is listed as a cellular senescence gene in CellAge.
 C. AGEX1 is a general metabolic gene with no aging annotation.
 D. The stated database does not contain an entry for AGEX1.
 Answer with exactly one letter: A, B, C, or D."
-F047,LNVT3,CellAge,fake_trap,NOT_SUPPORTED,LNVT3 is listed as a cellular senescence gene in CellAge.,train,F047_binary,binary,NO,,"Is the following claim supported by the stated database?
+F047,LNVT3,CellAge,fake_trap,NOT_SUPPORTED,LNVT3 is listed as a cellular senescence gene in CellAge.,test,F047_binary,binary,NO,,"Is the following claim supported by the stated database?
 Claim: LNVT3 is listed as a cellular senescence gene in CellAge.
 Answer with exactly one word: YES or NO."
-F047,LNVT3,CellAge,fake_trap,NOT_SUPPORTED,LNVT3 is listed as a cellular senescence gene in CellAge.,train,F047_ternary,ternary,NOT_SUPPORTED,,"Evaluate the following claim about aging biology.
+F047,LNVT3,CellAge,fake_trap,NOT_SUPPORTED,LNVT3 is listed as a cellular senescence gene in CellAge.,test,F047_ternary,ternary,NOT_SUPPORTED,,"Evaluate the following claim about aging biology.
 Claim: LNVT3 is listed as a cellular senescence gene in CellAge.
 Answer with exactly one of these three labels on the final line:
 SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
-F047,LNVT3,CellAge,fake_trap,NOT_SUPPORTED,LNVT3 is listed as a cellular senescence gene in CellAge.,train,F047_mcq,mcq,NOT_SUPPORTED,C,"Which of the following statements is supported by CellAge?
+F047,LNVT3,CellAge,fake_trap,NOT_SUPPORTED,LNVT3 is listed as a cellular senescence gene in CellAge.,test,F047_mcq,mcq,NOT_SUPPORTED,C,"Which of the following statements is supported by CellAge?
 A. LNVT3 is listed as a cellular senescence gene in CellAge.
 B. LNVT3 is a general metabolic gene with no aging annotation.
 C. LNVT3 is listed as a cellular senescence gene in CellAge.
@@ -648,4 +648,524 @@ A. TERT2B is listed as a cellular senescence gene in CellAge.
 B. TERT2B is listed as a cellular senescence gene in CellAge.
 C. TERT2B is a general metabolic gene with no aging annotation.
 D. The stated database does not contain an entry for TERT2B.
+Answer with exactly one letter: A, B, C, or D."
+F051,GH1,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"GH1 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F051_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: GH1 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one word: YES or NO."
+F051,GH1,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"GH1 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F051_ternary,ternary,INSUFFICIENT_EVIDENCE,,"Evaluate the following claim about aging biology.
+Claim: GH1 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F051,GH1,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"GH1 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F051_mcq,mcq,INSUFFICIENT_EVIDENCE,C,"Which of the following statements is supported by OpenGenes?
+A. AGEX1 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+B. GH1 is a general metabolic gene with no aging annotation.
+C. GH1 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+D. The stated database does not contain an entry for GH1.
+Answer with exactly one letter: A, B, C, or D."
+F052,PPARG,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"PPARG has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F052_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: PPARG has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one word: YES or NO."
+F052,PPARG,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"PPARG has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F052_ternary,ternary,INSUFFICIENT_EVIDENCE,,"Evaluate the following claim about aging biology.
+Claim: PPARG has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F052,PPARG,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"PPARG has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F052_mcq,mcq,INSUFFICIENT_EVIDENCE,D,"Which of the following statements is supported by OpenGenes?
+A. LNVT3 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+B. PPARG is a general metabolic gene with no aging annotation.
+C. The stated database does not contain an entry for PPARG.
+D. PPARG has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one letter: A, B, C, or D."
+F053,GPX4,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"GPX4 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F053_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: GPX4 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one word: YES or NO."
+F053,GPX4,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"GPX4 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F053_ternary,ternary,INSUFFICIENT_EVIDENCE,,"Evaluate the following claim about aging biology.
+Claim: GPX4 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F053,GPX4,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"GPX4 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F053_mcq,mcq,INSUFFICIENT_EVIDENCE,A,"Which of the following statements is supported by OpenGenes?
+A. GPX4 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+B. SNRP9X has consistent, well-supported evidence of lifespan extension in OpenGenes.
+C. GPX4 is a general metabolic gene with no aging annotation.
+D. The stated database does not contain an entry for GPX4.
+Answer with exactly one letter: A, B, C, or D."
+F054,GSK3B,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"GSK3B has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F054_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: GSK3B has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one word: YES or NO."
+F054,GSK3B,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"GSK3B has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F054_ternary,ternary,INSUFFICIENT_EVIDENCE,,"Evaluate the following claim about aging biology.
+Claim: GSK3B has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F054,GSK3B,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"GSK3B has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F054_mcq,mcq,INSUFFICIENT_EVIDENCE,B,"Which of the following statements is supported by OpenGenes?
+A. FOXQ7L has consistent, well-supported evidence of lifespan extension in OpenGenes.
+B. GSK3B has consistent, well-supported evidence of lifespan extension in OpenGenes.
+C. GSK3B is a general metabolic gene with no aging annotation.
+D. The stated database does not contain an entry for GSK3B.
+Answer with exactly one letter: A, B, C, or D."
+F055,XRCC6,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"XRCC6 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F055_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: XRCC6 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one word: YES or NO."
+F055,XRCC6,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"XRCC6 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F055_ternary,ternary,INSUFFICIENT_EVIDENCE,,"Evaluate the following claim about aging biology.
+Claim: XRCC6 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F055,XRCC6,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"XRCC6 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F055_mcq,mcq,INSUFFICIENT_EVIDENCE,C,"Which of the following statements is supported by OpenGenes?
+A. TERT2B has consistent, well-supported evidence of lifespan extension in OpenGenes.
+B. XRCC6 is a general metabolic gene with no aging annotation.
+C. XRCC6 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+D. The stated database does not contain an entry for XRCC6.
+Answer with exactly one letter: A, B, C, or D."
+F056,HSPA9,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"HSPA9 has consistent, well-supported evidence of lifespan extension in OpenGenes.",test,F056_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: HSPA9 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one word: YES or NO."
+F056,HSPA9,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"HSPA9 has consistent, well-supported evidence of lifespan extension in OpenGenes.",test,F056_ternary,ternary,INSUFFICIENT_EVIDENCE,,"Evaluate the following claim about aging biology.
+Claim: HSPA9 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F056,HSPA9,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"HSPA9 has consistent, well-supported evidence of lifespan extension in OpenGenes.",test,F056_mcq,mcq,INSUFFICIENT_EVIDENCE,D,"Which of the following statements is supported by OpenGenes?
+A. AGEX1 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+B. HSPA9 is a general metabolic gene with no aging annotation.
+C. The stated database does not contain an entry for HSPA9.
+D. HSPA9 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one letter: A, B, C, or D."
+F057,JAK2,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"JAK2 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F057_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: JAK2 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one word: YES or NO."
+F057,JAK2,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"JAK2 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F057_ternary,ternary,INSUFFICIENT_EVIDENCE,,"Evaluate the following claim about aging biology.
+Claim: JAK2 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F057,JAK2,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"JAK2 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F057_mcq,mcq,INSUFFICIENT_EVIDENCE,A,"Which of the following statements is supported by OpenGenes?
+A. JAK2 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+B. LNVT3 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+C. JAK2 is a general metabolic gene with no aging annotation.
+D. The stated database does not contain an entry for JAK2.
+Answer with exactly one letter: A, B, C, or D."
+F058,UCP3,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"UCP3 has consistent, well-supported evidence of lifespan extension in OpenGenes.",test,F058_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: UCP3 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one word: YES or NO."
+F058,UCP3,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"UCP3 has consistent, well-supported evidence of lifespan extension in OpenGenes.",test,F058_ternary,ternary,INSUFFICIENT_EVIDENCE,,"Evaluate the following claim about aging biology.
+Claim: UCP3 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F058,UCP3,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"UCP3 has consistent, well-supported evidence of lifespan extension in OpenGenes.",test,F058_mcq,mcq,INSUFFICIENT_EVIDENCE,B,"Which of the following statements is supported by OpenGenes?
+A. SNRP9X has consistent, well-supported evidence of lifespan extension in OpenGenes.
+B. UCP3 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+C. UCP3 is a general metabolic gene with no aging annotation.
+D. The stated database does not contain an entry for UCP3.
+Answer with exactly one letter: A, B, C, or D."
+F059,BUB3,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"BUB3 has consistent, well-supported evidence of lifespan extension in OpenGenes.",test,F059_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: BUB3 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one word: YES or NO."
+F059,BUB3,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"BUB3 has consistent, well-supported evidence of lifespan extension in OpenGenes.",test,F059_ternary,ternary,INSUFFICIENT_EVIDENCE,,"Evaluate the following claim about aging biology.
+Claim: BUB3 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F059,BUB3,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"BUB3 has consistent, well-supported evidence of lifespan extension in OpenGenes.",test,F059_mcq,mcq,INSUFFICIENT_EVIDENCE,C,"Which of the following statements is supported by OpenGenes?
+A. FOXQ7L has consistent, well-supported evidence of lifespan extension in OpenGenes.
+B. BUB3 is a general metabolic gene with no aging annotation.
+C. BUB3 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+D. The stated database does not contain an entry for BUB3.
+Answer with exactly one letter: A, B, C, or D."
+F060,GLO1,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"GLO1 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F060_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: GLO1 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one word: YES or NO."
+F060,GLO1,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"GLO1 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F060_ternary,ternary,INSUFFICIENT_EVIDENCE,,"Evaluate the following claim about aging biology.
+Claim: GLO1 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F060,GLO1,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"GLO1 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F060_mcq,mcq,INSUFFICIENT_EVIDENCE,D,"Which of the following statements is supported by OpenGenes?
+A. TERT2B has consistent, well-supported evidence of lifespan extension in OpenGenes.
+B. GLO1 is a general metabolic gene with no aging annotation.
+C. The stated database does not contain an entry for GLO1.
+D. GLO1 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+Answer with exactly one letter: A, B, C, or D."
+F001_v1,MAPK9,CellAge,cellage_paraphrase,SUPPORTED,"According to CellAge, MAPK9 is associated with cellular senescence.",train,F001_v1_binary,binary,YES,,"Is the following claim supported by the stated database?
+Claim: According to CellAge, MAPK9 is associated with cellular senescence.
+Answer with exactly one word: YES or NO."
+F001_v1,MAPK9,CellAge,cellage_paraphrase,SUPPORTED,"According to CellAge, MAPK9 is associated with cellular senescence.",train,F001_v1_ternary,ternary,SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: According to CellAge, MAPK9 is associated with cellular senescence.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F001_v1,MAPK9,CellAge,cellage_paraphrase,SUPPORTED,"According to CellAge, MAPK9 is associated with cellular senescence.",train,F001_v1_mcq,mcq,SUPPORTED,A,"Which of the following statements is supported by CellAge?
+A. According to CellAge, MAPK9 is associated with cellular senescence.
+B. According to CellAge, AGEX1 is associated with cellular senescence.
+C. MAPK9 is a general metabolic gene with no aging annotation.
+D. The stated database does not contain an entry for MAPK9.
+Answer with exactly one letter: A, B, C, or D."
+F001_v2,MAPK9,CellAge,cellage_paraphrase,SUPPORTED,CellAge database: is MAPK9 catalogued as a senescence gene?,train,F001_v2_binary,binary,YES,,"Is the following claim supported by the stated database?
+Claim: CellAge database: is MAPK9 catalogued as a senescence gene?
+Answer with exactly one word: YES or NO."
+F001_v2,MAPK9,CellAge,cellage_paraphrase,SUPPORTED,CellAge database: is MAPK9 catalogued as a senescence gene?,train,F001_v2_ternary,ternary,SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: CellAge database: is MAPK9 catalogued as a senescence gene?
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F001_v2,MAPK9,CellAge,cellage_paraphrase,SUPPORTED,CellAge database: is MAPK9 catalogued as a senescence gene?,train,F001_v2_mcq,mcq,SUPPORTED,B,"Which of the following statements is supported by CellAge?
+A. CellAge database: is LNVT3 catalogued as a senescence gene?
+B. CellAge database: is MAPK9 catalogued as a senescence gene?
+C. MAPK9 is a general metabolic gene with no aging annotation.
+D. The stated database does not contain an entry for MAPK9.
+Answer with exactly one letter: A, B, C, or D."
+F002_v1,NRSN2,CellAge,cellage_paraphrase,SUPPORTED,"According to CellAge, NRSN2 is associated with cellular senescence.",train,F002_v1_binary,binary,YES,,"Is the following claim supported by the stated database?
+Claim: According to CellAge, NRSN2 is associated with cellular senescence.
+Answer with exactly one word: YES or NO."
+F002_v1,NRSN2,CellAge,cellage_paraphrase,SUPPORTED,"According to CellAge, NRSN2 is associated with cellular senescence.",train,F002_v1_ternary,ternary,SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: According to CellAge, NRSN2 is associated with cellular senescence.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F002_v1,NRSN2,CellAge,cellage_paraphrase,SUPPORTED,"According to CellAge, NRSN2 is associated with cellular senescence.",train,F002_v1_mcq,mcq,SUPPORTED,C,"Which of the following statements is supported by CellAge?
+A. According to CellAge, SNRP9X is associated with cellular senescence.
+B. NRSN2 is a general metabolic gene with no aging annotation.
+C. According to CellAge, NRSN2 is associated with cellular senescence.
+D. The stated database does not contain an entry for NRSN2.
+Answer with exactly one letter: A, B, C, or D."
+F002_v2,NRSN2,CellAge,cellage_paraphrase,SUPPORTED,CellAge database: is NRSN2 catalogued as a senescence gene?,train,F002_v2_binary,binary,YES,,"Is the following claim supported by the stated database?
+Claim: CellAge database: is NRSN2 catalogued as a senescence gene?
+Answer with exactly one word: YES or NO."
+F002_v2,NRSN2,CellAge,cellage_paraphrase,SUPPORTED,CellAge database: is NRSN2 catalogued as a senescence gene?,train,F002_v2_ternary,ternary,SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: CellAge database: is NRSN2 catalogued as a senescence gene?
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F002_v2,NRSN2,CellAge,cellage_paraphrase,SUPPORTED,CellAge database: is NRSN2 catalogued as a senescence gene?,train,F002_v2_mcq,mcq,SUPPORTED,D,"Which of the following statements is supported by CellAge?
+A. CellAge database: is FOXQ7L catalogued as a senescence gene?
+B. NRSN2 is a general metabolic gene with no aging annotation.
+C. The stated database does not contain an entry for NRSN2.
+D. CellAge database: is NRSN2 catalogued as a senescence gene?
+Answer with exactly one letter: A, B, C, or D."
+F003_v1,SUMO3,CellAge,cellage_paraphrase,SUPPORTED,"According to CellAge, SUMO3 is associated with cellular senescence.",train,F003_v1_binary,binary,YES,,"Is the following claim supported by the stated database?
+Claim: According to CellAge, SUMO3 is associated with cellular senescence.
+Answer with exactly one word: YES or NO."
+F003_v1,SUMO3,CellAge,cellage_paraphrase,SUPPORTED,"According to CellAge, SUMO3 is associated with cellular senescence.",train,F003_v1_ternary,ternary,SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: According to CellAge, SUMO3 is associated with cellular senescence.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F003_v1,SUMO3,CellAge,cellage_paraphrase,SUPPORTED,"According to CellAge, SUMO3 is associated with cellular senescence.",train,F003_v1_mcq,mcq,SUPPORTED,A,"Which of the following statements is supported by CellAge?
+A. According to CellAge, SUMO3 is associated with cellular senescence.
+B. According to CellAge, TERT2B is associated with cellular senescence.
+C. SUMO3 is a general metabolic gene with no aging annotation.
+D. The stated database does not contain an entry for SUMO3.
+Answer with exactly one letter: A, B, C, or D."
+F003_v2,SUMO3,CellAge,cellage_paraphrase,SUPPORTED,CellAge database: is SUMO3 catalogued as a senescence gene?,train,F003_v2_binary,binary,YES,,"Is the following claim supported by the stated database?
+Claim: CellAge database: is SUMO3 catalogued as a senescence gene?
+Answer with exactly one word: YES or NO."
+F003_v2,SUMO3,CellAge,cellage_paraphrase,SUPPORTED,CellAge database: is SUMO3 catalogued as a senescence gene?,train,F003_v2_ternary,ternary,SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: CellAge database: is SUMO3 catalogued as a senescence gene?
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F003_v2,SUMO3,CellAge,cellage_paraphrase,SUPPORTED,CellAge database: is SUMO3 catalogued as a senescence gene?,train,F003_v2_mcq,mcq,SUPPORTED,B,"Which of the following statements is supported by CellAge?
+A. CellAge database: is AGEX1 catalogued as a senescence gene?
+B. CellAge database: is SUMO3 catalogued as a senescence gene?
+C. SUMO3 is a general metabolic gene with no aging annotation.
+D. The stated database does not contain an entry for SUMO3.
+Answer with exactly one letter: A, B, C, or D."
+F004_v1,ROMO1,CellAge,cellage_paraphrase,SUPPORTED,"According to CellAge, ROMO1 is associated with cellular senescence.",train,F004_v1_binary,binary,YES,,"Is the following claim supported by the stated database?
+Claim: According to CellAge, ROMO1 is associated with cellular senescence.
+Answer with exactly one word: YES or NO."
+F004_v1,ROMO1,CellAge,cellage_paraphrase,SUPPORTED,"According to CellAge, ROMO1 is associated with cellular senescence.",train,F004_v1_ternary,ternary,SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: According to CellAge, ROMO1 is associated with cellular senescence.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F004_v1,ROMO1,CellAge,cellage_paraphrase,SUPPORTED,"According to CellAge, ROMO1 is associated with cellular senescence.",train,F004_v1_mcq,mcq,SUPPORTED,C,"Which of the following statements is supported by CellAge?
+A. According to CellAge, LNVT3 is associated with cellular senescence.
+B. ROMO1 is a general metabolic gene with no aging annotation.
+C. According to CellAge, ROMO1 is associated with cellular senescence.
+D. The stated database does not contain an entry for ROMO1.
+Answer with exactly one letter: A, B, C, or D."
+F004_v2,ROMO1,CellAge,cellage_paraphrase,SUPPORTED,CellAge database: is ROMO1 catalogued as a senescence gene?,train,F004_v2_binary,binary,YES,,"Is the following claim supported by the stated database?
+Claim: CellAge database: is ROMO1 catalogued as a senescence gene?
+Answer with exactly one word: YES or NO."
+F004_v2,ROMO1,CellAge,cellage_paraphrase,SUPPORTED,CellAge database: is ROMO1 catalogued as a senescence gene?,train,F004_v2_ternary,ternary,SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: CellAge database: is ROMO1 catalogued as a senescence gene?
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F004_v2,ROMO1,CellAge,cellage_paraphrase,SUPPORTED,CellAge database: is ROMO1 catalogued as a senescence gene?,train,F004_v2_mcq,mcq,SUPPORTED,D,"Which of the following statements is supported by CellAge?
+A. CellAge database: is SNRP9X catalogued as a senescence gene?
+B. ROMO1 is a general metabolic gene with no aging annotation.
+C. The stated database does not contain an entry for ROMO1.
+D. CellAge database: is ROMO1 catalogued as a senescence gene?
+Answer with exactly one letter: A, B, C, or D."
+F005_v1,SMAD1,CellAge,cellage_paraphrase,SUPPORTED,"According to CellAge, SMAD1 is associated with cellular senescence.",test,F005_v1_binary,binary,YES,,"Is the following claim supported by the stated database?
+Claim: According to CellAge, SMAD1 is associated with cellular senescence.
+Answer with exactly one word: YES or NO."
+F005_v1,SMAD1,CellAge,cellage_paraphrase,SUPPORTED,"According to CellAge, SMAD1 is associated with cellular senescence.",test,F005_v1_ternary,ternary,SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: According to CellAge, SMAD1 is associated with cellular senescence.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F005_v1,SMAD1,CellAge,cellage_paraphrase,SUPPORTED,"According to CellAge, SMAD1 is associated with cellular senescence.",test,F005_v1_mcq,mcq,SUPPORTED,A,"Which of the following statements is supported by CellAge?
+A. According to CellAge, SMAD1 is associated with cellular senescence.
+B. According to CellAge, FOXQ7L is associated with cellular senescence.
+C. SMAD1 is a general metabolic gene with no aging annotation.
+D. The stated database does not contain an entry for SMAD1.
+Answer with exactly one letter: A, B, C, or D."
+F005_v2,SMAD1,CellAge,cellage_paraphrase,SUPPORTED,CellAge database: is SMAD1 catalogued as a senescence gene?,test,F005_v2_binary,binary,YES,,"Is the following claim supported by the stated database?
+Claim: CellAge database: is SMAD1 catalogued as a senescence gene?
+Answer with exactly one word: YES or NO."
+F005_v2,SMAD1,CellAge,cellage_paraphrase,SUPPORTED,CellAge database: is SMAD1 catalogued as a senescence gene?,test,F005_v2_ternary,ternary,SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: CellAge database: is SMAD1 catalogued as a senescence gene?
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F005_v2,SMAD1,CellAge,cellage_paraphrase,SUPPORTED,CellAge database: is SMAD1 catalogued as a senescence gene?,test,F005_v2_mcq,mcq,SUPPORTED,B,"Which of the following statements is supported by CellAge?
+A. CellAge database: is TERT2B catalogued as a senescence gene?
+B. CellAge database: is SMAD1 catalogued as a senescence gene?
+C. SMAD1 is a general metabolic gene with no aging annotation.
+D. The stated database does not contain an entry for SMAD1.
+Answer with exactly one letter: A, B, C, or D."
+F016_v1,IGFBP2,OpenGenes,og_extending_paraphrase,SUPPORTED,"Based on OpenGenes data, IGFBP2 has evidence supporting lifespan extension.",train,F016_v1_binary,binary,YES,,"Is the following claim supported by the stated database?
+Claim: Based on OpenGenes data, IGFBP2 has evidence supporting lifespan extension.
+Answer with exactly one word: YES or NO."
+F016_v1,IGFBP2,OpenGenes,og_extending_paraphrase,SUPPORTED,"Based on OpenGenes data, IGFBP2 has evidence supporting lifespan extension.",train,F016_v1_ternary,ternary,SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: Based on OpenGenes data, IGFBP2 has evidence supporting lifespan extension.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F016_v1,IGFBP2,OpenGenes,og_extending_paraphrase,SUPPORTED,"Based on OpenGenes data, IGFBP2 has evidence supporting lifespan extension.",train,F016_v1_mcq,mcq,SUPPORTED,C,"Which of the following statements is supported by OpenGenes?
+A. Based on OpenGenes data, AGEX1 has evidence supporting lifespan extension.
+B. IGFBP2 is a general metabolic gene with no aging annotation.
+C. Based on OpenGenes data, IGFBP2 has evidence supporting lifespan extension.
+D. The stated database does not contain an entry for IGFBP2.
+Answer with exactly one letter: A, B, C, or D."
+F016_v2,IGFBP2,OpenGenes,og_extending_paraphrase,SUPPORTED,OpenGenes lists IGFBP2 among genes with lifespan-extending experimental support.,train,F016_v2_binary,binary,YES,,"Is the following claim supported by the stated database?
+Claim: OpenGenes lists IGFBP2 among genes with lifespan-extending experimental support.
+Answer with exactly one word: YES or NO."
+F016_v2,IGFBP2,OpenGenes,og_extending_paraphrase,SUPPORTED,OpenGenes lists IGFBP2 among genes with lifespan-extending experimental support.,train,F016_v2_ternary,ternary,SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: OpenGenes lists IGFBP2 among genes with lifespan-extending experimental support.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F016_v2,IGFBP2,OpenGenes,og_extending_paraphrase,SUPPORTED,OpenGenes lists IGFBP2 among genes with lifespan-extending experimental support.,train,F016_v2_mcq,mcq,SUPPORTED,D,"Which of the following statements is supported by OpenGenes?
+A. OpenGenes lists LNVT3 among genes with lifespan-extending experimental support.
+B. IGFBP2 is a general metabolic gene with no aging annotation.
+C. The stated database does not contain an entry for IGFBP2.
+D. OpenGenes lists IGFBP2 among genes with lifespan-extending experimental support.
+Answer with exactly one letter: A, B, C, or D."
+F017_v1,CDKN2A,OpenGenes,og_extending_paraphrase,SUPPORTED,"Based on OpenGenes data, CDKN2A has evidence supporting lifespan extension.",test,F017_v1_binary,binary,YES,,"Is the following claim supported by the stated database?
+Claim: Based on OpenGenes data, CDKN2A has evidence supporting lifespan extension.
+Answer with exactly one word: YES or NO."
+F017_v1,CDKN2A,OpenGenes,og_extending_paraphrase,SUPPORTED,"Based on OpenGenes data, CDKN2A has evidence supporting lifespan extension.",test,F017_v1_ternary,ternary,SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: Based on OpenGenes data, CDKN2A has evidence supporting lifespan extension.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F017_v1,CDKN2A,OpenGenes,og_extending_paraphrase,SUPPORTED,"Based on OpenGenes data, CDKN2A has evidence supporting lifespan extension.",test,F017_v1_mcq,mcq,SUPPORTED,A,"Which of the following statements is supported by OpenGenes?
+A. Based on OpenGenes data, CDKN2A has evidence supporting lifespan extension.
+B. Based on OpenGenes data, SNRP9X has evidence supporting lifespan extension.
+C. CDKN2A is a general metabolic gene with no aging annotation.
+D. The stated database does not contain an entry for CDKN2A.
+Answer with exactly one letter: A, B, C, or D."
+F017_v2,CDKN2A,OpenGenes,og_extending_paraphrase,SUPPORTED,OpenGenes lists CDKN2A among genes with lifespan-extending experimental support.,test,F017_v2_binary,binary,YES,,"Is the following claim supported by the stated database?
+Claim: OpenGenes lists CDKN2A among genes with lifespan-extending experimental support.
+Answer with exactly one word: YES or NO."
+F017_v2,CDKN2A,OpenGenes,og_extending_paraphrase,SUPPORTED,OpenGenes lists CDKN2A among genes with lifespan-extending experimental support.,test,F017_v2_ternary,ternary,SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: OpenGenes lists CDKN2A among genes with lifespan-extending experimental support.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F017_v2,CDKN2A,OpenGenes,og_extending_paraphrase,SUPPORTED,OpenGenes lists CDKN2A among genes with lifespan-extending experimental support.,test,F017_v2_mcq,mcq,SUPPORTED,B,"Which of the following statements is supported by OpenGenes?
+A. OpenGenes lists FOXQ7L among genes with lifespan-extending experimental support.
+B. OpenGenes lists CDKN2A among genes with lifespan-extending experimental support.
+C. CDKN2A is a general metabolic gene with no aging annotation.
+D. The stated database does not contain an entry for CDKN2A.
+Answer with exactly one letter: A, B, C, or D."
+F018_v1,IKBKB,OpenGenes,og_extending_paraphrase,SUPPORTED,"Based on OpenGenes data, IKBKB has evidence supporting lifespan extension.",train,F018_v1_binary,binary,YES,,"Is the following claim supported by the stated database?
+Claim: Based on OpenGenes data, IKBKB has evidence supporting lifespan extension.
+Answer with exactly one word: YES or NO."
+F018_v1,IKBKB,OpenGenes,og_extending_paraphrase,SUPPORTED,"Based on OpenGenes data, IKBKB has evidence supporting lifespan extension.",train,F018_v1_ternary,ternary,SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: Based on OpenGenes data, IKBKB has evidence supporting lifespan extension.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F018_v1,IKBKB,OpenGenes,og_extending_paraphrase,SUPPORTED,"Based on OpenGenes data, IKBKB has evidence supporting lifespan extension.",train,F018_v1_mcq,mcq,SUPPORTED,C,"Which of the following statements is supported by OpenGenes?
+A. Based on OpenGenes data, TERT2B has evidence supporting lifespan extension.
+B. IKBKB is a general metabolic gene with no aging annotation.
+C. Based on OpenGenes data, IKBKB has evidence supporting lifespan extension.
+D. The stated database does not contain an entry for IKBKB.
+Answer with exactly one letter: A, B, C, or D."
+F018_v2,IKBKB,OpenGenes,og_extending_paraphrase,SUPPORTED,OpenGenes lists IKBKB among genes with lifespan-extending experimental support.,train,F018_v2_binary,binary,YES,,"Is the following claim supported by the stated database?
+Claim: OpenGenes lists IKBKB among genes with lifespan-extending experimental support.
+Answer with exactly one word: YES or NO."
+F018_v2,IKBKB,OpenGenes,og_extending_paraphrase,SUPPORTED,OpenGenes lists IKBKB among genes with lifespan-extending experimental support.,train,F018_v2_ternary,ternary,SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: OpenGenes lists IKBKB among genes with lifespan-extending experimental support.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F018_v2,IKBKB,OpenGenes,og_extending_paraphrase,SUPPORTED,OpenGenes lists IKBKB among genes with lifespan-extending experimental support.,train,F018_v2_mcq,mcq,SUPPORTED,D,"Which of the following statements is supported by OpenGenes?
+A. OpenGenes lists AGEX1 among genes with lifespan-extending experimental support.
+B. IKBKB is a general metabolic gene with no aging annotation.
+C. The stated database does not contain an entry for IKBKB.
+D. OpenGenes lists IKBKB among genes with lifespan-extending experimental support.
+Answer with exactly one letter: A, B, C, or D."
+F019_v1,CYB5R3,OpenGenes,og_extending_paraphrase,SUPPORTED,"Based on OpenGenes data, CYB5R3 has evidence supporting lifespan extension.",train,F019_v1_binary,binary,YES,,"Is the following claim supported by the stated database?
+Claim: Based on OpenGenes data, CYB5R3 has evidence supporting lifespan extension.
+Answer with exactly one word: YES or NO."
+F019_v1,CYB5R3,OpenGenes,og_extending_paraphrase,SUPPORTED,"Based on OpenGenes data, CYB5R3 has evidence supporting lifespan extension.",train,F019_v1_ternary,ternary,SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: Based on OpenGenes data, CYB5R3 has evidence supporting lifespan extension.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F019_v1,CYB5R3,OpenGenes,og_extending_paraphrase,SUPPORTED,"Based on OpenGenes data, CYB5R3 has evidence supporting lifespan extension.",train,F019_v1_mcq,mcq,SUPPORTED,A,"Which of the following statements is supported by OpenGenes?
+A. Based on OpenGenes data, CYB5R3 has evidence supporting lifespan extension.
+B. Based on OpenGenes data, LNVT3 has evidence supporting lifespan extension.
+C. CYB5R3 is a general metabolic gene with no aging annotation.
+D. The stated database does not contain an entry for CYB5R3.
+Answer with exactly one letter: A, B, C, or D."
+F019_v2,CYB5R3,OpenGenes,og_extending_paraphrase,SUPPORTED,OpenGenes lists CYB5R3 among genes with lifespan-extending experimental support.,train,F019_v2_binary,binary,YES,,"Is the following claim supported by the stated database?
+Claim: OpenGenes lists CYB5R3 among genes with lifespan-extending experimental support.
+Answer with exactly one word: YES or NO."
+F019_v2,CYB5R3,OpenGenes,og_extending_paraphrase,SUPPORTED,OpenGenes lists CYB5R3 among genes with lifespan-extending experimental support.,train,F019_v2_ternary,ternary,SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: OpenGenes lists CYB5R3 among genes with lifespan-extending experimental support.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F019_v2,CYB5R3,OpenGenes,og_extending_paraphrase,SUPPORTED,OpenGenes lists CYB5R3 among genes with lifespan-extending experimental support.,train,F019_v2_mcq,mcq,SUPPORTED,B,"Which of the following statements is supported by OpenGenes?
+A. OpenGenes lists SNRP9X among genes with lifespan-extending experimental support.
+B. OpenGenes lists CYB5R3 among genes with lifespan-extending experimental support.
+C. CYB5R3 is a general metabolic gene with no aging annotation.
+D. The stated database does not contain an entry for CYB5R3.
+Answer with exactly one letter: A, B, C, or D."
+F020_v1,TERT,OpenGenes,og_extending_paraphrase,SUPPORTED,"Based on OpenGenes data, TERT has evidence supporting lifespan extension.",train,F020_v1_binary,binary,YES,,"Is the following claim supported by the stated database?
+Claim: Based on OpenGenes data, TERT has evidence supporting lifespan extension.
+Answer with exactly one word: YES or NO."
+F020_v1,TERT,OpenGenes,og_extending_paraphrase,SUPPORTED,"Based on OpenGenes data, TERT has evidence supporting lifespan extension.",train,F020_v1_ternary,ternary,SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: Based on OpenGenes data, TERT has evidence supporting lifespan extension.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F020_v1,TERT,OpenGenes,og_extending_paraphrase,SUPPORTED,"Based on OpenGenes data, TERT has evidence supporting lifespan extension.",train,F020_v1_mcq,mcq,SUPPORTED,C,"Which of the following statements is supported by OpenGenes?
+A. Based on OpenGenes data, FOXQ7L has evidence supporting lifespan extension.
+B. TERT is a general metabolic gene with no aging annotation.
+C. Based on OpenGenes data, TERT has evidence supporting lifespan extension.
+D. The stated database does not contain an entry for TERT.
+Answer with exactly one letter: A, B, C, or D."
+F020_v2,TERT,OpenGenes,og_extending_paraphrase,SUPPORTED,OpenGenes lists TERT among genes with lifespan-extending experimental support.,train,F020_v2_binary,binary,YES,,"Is the following claim supported by the stated database?
+Claim: OpenGenes lists TERT among genes with lifespan-extending experimental support.
+Answer with exactly one word: YES or NO."
+F020_v2,TERT,OpenGenes,og_extending_paraphrase,SUPPORTED,OpenGenes lists TERT among genes with lifespan-extending experimental support.,train,F020_v2_ternary,ternary,SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: OpenGenes lists TERT among genes with lifespan-extending experimental support.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F020_v2,TERT,OpenGenes,og_extending_paraphrase,SUPPORTED,OpenGenes lists TERT among genes with lifespan-extending experimental support.,train,F020_v2_mcq,mcq,SUPPORTED,D,"Which of the following statements is supported by OpenGenes?
+A. OpenGenes lists TERT2B among genes with lifespan-extending experimental support.
+B. TERT is a general metabolic gene with no aging annotation.
+C. The stated database does not contain an entry for TERT.
+D. OpenGenes lists TERT among genes with lifespan-extending experimental support.
+Answer with exactly one letter: A, B, C, or D."
+F031_v1,GAPDH,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,"According to CellAge, GAPDH is associated with cellular senescence.",train,F031_v1_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: According to CellAge, GAPDH is associated with cellular senescence.
+Answer with exactly one word: YES or NO."
+F031_v1,GAPDH,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,"According to CellAge, GAPDH is associated with cellular senescence.",train,F031_v1_ternary,ternary,NOT_SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: According to CellAge, GAPDH is associated with cellular senescence.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F031_v1,GAPDH,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,"According to CellAge, GAPDH is associated with cellular senescence.",train,F031_v1_mcq,mcq,NOT_SUPPORTED,A,"Which of the following statements is supported by CellAge?
+A. According to CellAge, GAPDH is associated with cellular senescence.
+B. According to CellAge, AGEX1 is associated with cellular senescence.
+C. GAPDH is a general metabolic gene with no aging annotation.
+D. The stated database does not contain an entry for GAPDH.
+Answer with exactly one letter: A, B, C, or D."
+F031_v2,GAPDH,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,CellAge database: is GAPDH catalogued as a senescence gene?,train,F031_v2_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: CellAge database: is GAPDH catalogued as a senescence gene?
+Answer with exactly one word: YES or NO."
+F031_v2,GAPDH,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,CellAge database: is GAPDH catalogued as a senescence gene?,train,F031_v2_ternary,ternary,NOT_SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: CellAge database: is GAPDH catalogued as a senescence gene?
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F031_v2,GAPDH,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,CellAge database: is GAPDH catalogued as a senescence gene?,train,F031_v2_mcq,mcq,NOT_SUPPORTED,B,"Which of the following statements is supported by CellAge?
+A. CellAge database: is LNVT3 catalogued as a senescence gene?
+B. CellAge database: is GAPDH catalogued as a senescence gene?
+C. GAPDH is a general metabolic gene with no aging annotation.
+D. The stated database does not contain an entry for GAPDH.
+Answer with exactly one letter: A, B, C, or D."
+F032_v1,ACTB,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,"According to CellAge, ACTB is associated with cellular senescence.",train,F032_v1_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: According to CellAge, ACTB is associated with cellular senescence.
+Answer with exactly one word: YES or NO."
+F032_v1,ACTB,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,"According to CellAge, ACTB is associated with cellular senescence.",train,F032_v1_ternary,ternary,NOT_SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: According to CellAge, ACTB is associated with cellular senescence.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F032_v1,ACTB,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,"According to CellAge, ACTB is associated with cellular senescence.",train,F032_v1_mcq,mcq,NOT_SUPPORTED,C,"Which of the following statements is supported by CellAge?
+A. According to CellAge, SNRP9X is associated with cellular senescence.
+B. ACTB is a general metabolic gene with no aging annotation.
+C. According to CellAge, ACTB is associated with cellular senescence.
+D. The stated database does not contain an entry for ACTB.
+Answer with exactly one letter: A, B, C, or D."
+F032_v2,ACTB,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,CellAge database: is ACTB catalogued as a senescence gene?,train,F032_v2_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: CellAge database: is ACTB catalogued as a senescence gene?
+Answer with exactly one word: YES or NO."
+F032_v2,ACTB,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,CellAge database: is ACTB catalogued as a senescence gene?,train,F032_v2_ternary,ternary,NOT_SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: CellAge database: is ACTB catalogued as a senescence gene?
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F032_v2,ACTB,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,CellAge database: is ACTB catalogued as a senescence gene?,train,F032_v2_mcq,mcq,NOT_SUPPORTED,D,"Which of the following statements is supported by CellAge?
+A. CellAge database: is FOXQ7L catalogued as a senescence gene?
+B. ACTB is a general metabolic gene with no aging annotation.
+C. The stated database does not contain an entry for ACTB.
+D. CellAge database: is ACTB catalogued as a senescence gene?
+Answer with exactly one letter: A, B, C, or D."
+F033_v1,TUBB,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,"According to CellAge, TUBB is associated with cellular senescence.",train,F033_v1_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: According to CellAge, TUBB is associated with cellular senescence.
+Answer with exactly one word: YES or NO."
+F033_v1,TUBB,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,"According to CellAge, TUBB is associated with cellular senescence.",train,F033_v1_ternary,ternary,NOT_SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: According to CellAge, TUBB is associated with cellular senescence.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F033_v1,TUBB,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,"According to CellAge, TUBB is associated with cellular senescence.",train,F033_v1_mcq,mcq,NOT_SUPPORTED,A,"Which of the following statements is supported by CellAge?
+A. According to CellAge, TUBB is associated with cellular senescence.
+B. According to CellAge, TERT2B is associated with cellular senescence.
+C. TUBB is a general metabolic gene with no aging annotation.
+D. The stated database does not contain an entry for TUBB.
+Answer with exactly one letter: A, B, C, or D."
+F033_v2,TUBB,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,CellAge database: is TUBB catalogued as a senescence gene?,train,F033_v2_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: CellAge database: is TUBB catalogued as a senescence gene?
+Answer with exactly one word: YES or NO."
+F033_v2,TUBB,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,CellAge database: is TUBB catalogued as a senescence gene?,train,F033_v2_ternary,ternary,NOT_SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: CellAge database: is TUBB catalogued as a senescence gene?
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F033_v2,TUBB,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,CellAge database: is TUBB catalogued as a senescence gene?,train,F033_v2_mcq,mcq,NOT_SUPPORTED,B,"Which of the following statements is supported by CellAge?
+A. CellAge database: is AGEX1 catalogued as a senescence gene?
+B. CellAge database: is TUBB catalogued as a senescence gene?
+C. TUBB is a general metabolic gene with no aging annotation.
+D. The stated database does not contain an entry for TUBB.
+Answer with exactly one letter: A, B, C, or D."
+F034_v1,LDHA,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,"According to CellAge, LDHA is associated with cellular senescence.",train,F034_v1_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: According to CellAge, LDHA is associated with cellular senescence.
+Answer with exactly one word: YES or NO."
+F034_v1,LDHA,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,"According to CellAge, LDHA is associated with cellular senescence.",train,F034_v1_ternary,ternary,NOT_SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: According to CellAge, LDHA is associated with cellular senescence.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F034_v1,LDHA,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,"According to CellAge, LDHA is associated with cellular senescence.",train,F034_v1_mcq,mcq,NOT_SUPPORTED,C,"Which of the following statements is supported by CellAge?
+A. According to CellAge, LNVT3 is associated with cellular senescence.
+B. LDHA is a general metabolic gene with no aging annotation.
+C. According to CellAge, LDHA is associated with cellular senescence.
+D. The stated database does not contain an entry for LDHA.
+Answer with exactly one letter: A, B, C, or D."
+F034_v2,LDHA,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,CellAge database: is LDHA catalogued as a senescence gene?,train,F034_v2_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: CellAge database: is LDHA catalogued as a senescence gene?
+Answer with exactly one word: YES or NO."
+F034_v2,LDHA,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,CellAge database: is LDHA catalogued as a senescence gene?,train,F034_v2_ternary,ternary,NOT_SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: CellAge database: is LDHA catalogued as a senescence gene?
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F034_v2,LDHA,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,CellAge database: is LDHA catalogued as a senescence gene?,train,F034_v2_mcq,mcq,NOT_SUPPORTED,D,"Which of the following statements is supported by CellAge?
+A. CellAge database: is SNRP9X catalogued as a senescence gene?
+B. LDHA is a general metabolic gene with no aging annotation.
+C. The stated database does not contain an entry for LDHA.
+D. CellAge database: is LDHA catalogued as a senescence gene?
+Answer with exactly one letter: A, B, C, or D."
+F035_v1,PKM,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,"According to CellAge, PKM is associated with cellular senescence.",test,F035_v1_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: According to CellAge, PKM is associated with cellular senescence.
+Answer with exactly one word: YES or NO."
+F035_v1,PKM,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,"According to CellAge, PKM is associated with cellular senescence.",test,F035_v1_ternary,ternary,NOT_SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: According to CellAge, PKM is associated with cellular senescence.
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F035_v1,PKM,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,"According to CellAge, PKM is associated with cellular senescence.",test,F035_v1_mcq,mcq,NOT_SUPPORTED,A,"Which of the following statements is supported by CellAge?
+A. According to CellAge, PKM is associated with cellular senescence.
+B. According to CellAge, FOXQ7L is associated with cellular senescence.
+C. PKM is a general metabolic gene with no aging annotation.
+D. The stated database does not contain an entry for PKM.
+Answer with exactly one letter: A, B, C, or D."
+F035_v2,PKM,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,CellAge database: is PKM catalogued as a senescence gene?,test,F035_v2_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: CellAge database: is PKM catalogued as a senescence gene?
+Answer with exactly one word: YES or NO."
+F035_v2,PKM,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,CellAge database: is PKM catalogued as a senescence gene?,test,F035_v2_ternary,ternary,NOT_SUPPORTED,,"Evaluate the following claim about aging biology.
+Claim: CellAge database: is PKM catalogued as a senescence gene?
+Answer with exactly one of these three labels on the final line:
+SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
+F035_v2,PKM,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,CellAge database: is PKM catalogued as a senescence gene?,test,F035_v2_mcq,mcq,NOT_SUPPORTED,B,"Which of the following statements is supported by CellAge?
+A. CellAge database: is TERT2B catalogued as a senescence gene?
+B. CellAge database: is PKM catalogued as a senescence gene?
+C. PKM is a general metabolic gene with no aging annotation.
+D. The stated database does not contain an entry for PKM.
 Answer with exactly one letter: A, B, C, or D."

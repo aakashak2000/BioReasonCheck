@@ -20,15 +20,15 @@ F018,IKBKB,OpenGenes,og_extending,SUPPORTED,IKBKB is listed in OpenGenes as a ge
 F019,CYB5R3,OpenGenes,og_extending,SUPPORTED,CYB5R3 is listed in OpenGenes as a gene whose activity extends mammalian lifespan.,train
 F020,TERT,OpenGenes,og_extending,SUPPORTED,TERT is listed in OpenGenes as a gene whose activity extends mammalian lifespan.,train
 F021,CISD2,OpenGenes,og_extending,SUPPORTED,CISD2 is listed in OpenGenes as a gene whose activity extends mammalian lifespan.,train
-F022,MTOR,OpenGenes,og_extending,SUPPORTED,MTOR is listed in OpenGenes as a gene whose activity extends mammalian lifespan.,train
+F022,FOXO3,OpenGenes,og_extending,SUPPORTED,FOXO3 is listed in OpenGenes as a gene whose activity extends mammalian lifespan.,train
 F023,IGF1,OpenGenes,og_extending,SUPPORTED,IGF1 is listed in OpenGenes as a gene whose activity extends mammalian lifespan.,test
 F024,KL,OpenGenes,og_extending,SUPPORTED,KL is listed in OpenGenes as a gene whose activity extends mammalian lifespan.,test
 F025,GSTA4,OpenGenes,og_extending,SUPPORTED,GSTA4 is listed in OpenGenes as a gene whose activity extends mammalian lifespan.,train
-F026,EEF2,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,EEF2 is listed in OpenGenes as associated with aging (confidence: moderate).,test
-F027,PRKAR2B,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,PRKAR2B is listed in OpenGenes as associated with aging (confidence: high).,train
-F028,G6PD,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,G6PD is listed in OpenGenes as associated with aging (confidence: high).,train
-F029,TOPORS,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,TOPORS is listed in OpenGenes as associated with aging (confidence: high).,test
-F030,SIRT4,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,SIRT4 is listed in OpenGenes as associated with aging (confidence: moderate).,train
+F026,EEF2,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"EEF2 has consistent, well-supported evidence of lifespan extension in OpenGenes.",test
+F027,PRKAR2B,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"PRKAR2B has consistent, well-supported evidence of lifespan extension in OpenGenes.",train
+F028,G6PD,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"G6PD has consistent, well-supported evidence of lifespan extension in OpenGenes.",train
+F029,TOPORS,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"TOPORS has consistent, well-supported evidence of lifespan extension in OpenGenes.",test
+F030,SIRT4,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"SIRT4 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train
 F031,GAPDH,CellAge,hard_negative,NOT_SUPPORTED,GAPDH is listed as a cellular senescence gene in CellAge.,train
 F032,ACTB,CellAge,hard_negative,NOT_SUPPORTED,ACTB is listed as a cellular senescence gene in CellAge.,train
 F033,TUBB,CellAge,hard_negative,NOT_SUPPORTED,TUBB is listed as a cellular senescence gene in CellAge.,train
@@ -44,8 +44,48 @@ F042,ACACA,CellAge,hard_negative,NOT_SUPPORTED,ACACA is listed as a cellular sen
 F043,ACLY,CellAge,hard_negative,NOT_SUPPORTED,ACLY is listed as a cellular senescence gene in CellAge.,test
 F044,SUCLA2,CellAge,hard_negative,NOT_SUPPORTED,SUCLA2 is listed as a cellular senescence gene in CellAge.,test
 F045,SDHA,CellAge,hard_negative,NOT_SUPPORTED,SDHA is listed as a cellular senescence gene in CellAge.,test
-F046,AGEX1,CellAge,fake_trap,NOT_SUPPORTED,AGEX1 is listed as a cellular senescence gene in CellAge.,train
-F047,LNVT3,CellAge,fake_trap,NOT_SUPPORTED,LNVT3 is listed as a cellular senescence gene in CellAge.,train
+F046,AGEX1,CellAge,fake_trap,NOT_SUPPORTED,AGEX1 is listed as a cellular senescence gene in CellAge.,test
+F047,LNVT3,CellAge,fake_trap,NOT_SUPPORTED,LNVT3 is listed as a cellular senescence gene in CellAge.,test
 F048,SNRP9X,CellAge,fake_trap,NOT_SUPPORTED,SNRP9X is listed as a cellular senescence gene in CellAge.,train
 F049,FOXQ7L,CellAge,fake_trap,NOT_SUPPORTED,FOXQ7L is listed as a cellular senescence gene in CellAge.,train
 F050,TERT2B,CellAge,fake_trap,NOT_SUPPORTED,TERT2B is listed as a cellular senescence gene in CellAge.,train
+F051,GH1,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"GH1 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train
+F052,PPARG,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"PPARG has consistent, well-supported evidence of lifespan extension in OpenGenes.",train
+F053,GPX4,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"GPX4 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train
+F054,GSK3B,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"GSK3B has consistent, well-supported evidence of lifespan extension in OpenGenes.",train
+F055,XRCC6,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"XRCC6 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train
+F056,HSPA9,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"HSPA9 has consistent, well-supported evidence of lifespan extension in OpenGenes.",test
+F057,JAK2,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"JAK2 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train
+F058,UCP3,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"UCP3 has consistent, well-supported evidence of lifespan extension in OpenGenes.",test
+F059,BUB3,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"BUB3 has consistent, well-supported evidence of lifespan extension in OpenGenes.",test
+F060,GLO1,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"GLO1 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train
+F001_v1,MAPK9,CellAge,cellage_paraphrase,SUPPORTED,"According to CellAge, MAPK9 is associated with cellular senescence.",train
+F001_v2,MAPK9,CellAge,cellage_paraphrase,SUPPORTED,CellAge database: is MAPK9 catalogued as a senescence gene?,train
+F002_v1,NRSN2,CellAge,cellage_paraphrase,SUPPORTED,"According to CellAge, NRSN2 is associated with cellular senescence.",train
+F002_v2,NRSN2,CellAge,cellage_paraphrase,SUPPORTED,CellAge database: is NRSN2 catalogued as a senescence gene?,train
+F003_v1,SUMO3,CellAge,cellage_paraphrase,SUPPORTED,"According to CellAge, SUMO3 is associated with cellular senescence.",train
+F003_v2,SUMO3,CellAge,cellage_paraphrase,SUPPORTED,CellAge database: is SUMO3 catalogued as a senescence gene?,train
+F004_v1,ROMO1,CellAge,cellage_paraphrase,SUPPORTED,"According to CellAge, ROMO1 is associated with cellular senescence.",train
+F004_v2,ROMO1,CellAge,cellage_paraphrase,SUPPORTED,CellAge database: is ROMO1 catalogued as a senescence gene?,train
+F005_v1,SMAD1,CellAge,cellage_paraphrase,SUPPORTED,"According to CellAge, SMAD1 is associated with cellular senescence.",test
+F005_v2,SMAD1,CellAge,cellage_paraphrase,SUPPORTED,CellAge database: is SMAD1 catalogued as a senescence gene?,test
+F016_v1,IGFBP2,OpenGenes,og_extending_paraphrase,SUPPORTED,"Based on OpenGenes data, IGFBP2 has evidence supporting lifespan extension.",train
+F016_v2,IGFBP2,OpenGenes,og_extending_paraphrase,SUPPORTED,OpenGenes lists IGFBP2 among genes with lifespan-extending experimental support.,train
+F017_v1,CDKN2A,OpenGenes,og_extending_paraphrase,SUPPORTED,"Based on OpenGenes data, CDKN2A has evidence supporting lifespan extension.",test
+F017_v2,CDKN2A,OpenGenes,og_extending_paraphrase,SUPPORTED,OpenGenes lists CDKN2A among genes with lifespan-extending experimental support.,test
+F018_v1,IKBKB,OpenGenes,og_extending_paraphrase,SUPPORTED,"Based on OpenGenes data, IKBKB has evidence supporting lifespan extension.",train
+F018_v2,IKBKB,OpenGenes,og_extending_paraphrase,SUPPORTED,OpenGenes lists IKBKB among genes with lifespan-extending experimental support.,train
+F019_v1,CYB5R3,OpenGenes,og_extending_paraphrase,SUPPORTED,"Based on OpenGenes data, CYB5R3 has evidence supporting lifespan extension.",train
+F019_v2,CYB5R3,OpenGenes,og_extending_paraphrase,SUPPORTED,OpenGenes lists CYB5R3 among genes with lifespan-extending experimental support.,train
+F020_v1,TERT,OpenGenes,og_extending_paraphrase,SUPPORTED,"Based on OpenGenes data, TERT has evidence supporting lifespan extension.",train
+F020_v2,TERT,OpenGenes,og_extending_paraphrase,SUPPORTED,OpenGenes lists TERT among genes with lifespan-extending experimental support.,train
+F031_v1,GAPDH,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,"According to CellAge, GAPDH is associated with cellular senescence.",train
+F031_v2,GAPDH,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,CellAge database: is GAPDH catalogued as a senescence gene?,train
+F032_v1,ACTB,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,"According to CellAge, ACTB is associated with cellular senescence.",train
+F032_v2,ACTB,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,CellAge database: is ACTB catalogued as a senescence gene?,train
+F033_v1,TUBB,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,"According to CellAge, TUBB is associated with cellular senescence.",train
+F033_v2,TUBB,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,CellAge database: is TUBB catalogued as a senescence gene?,train
+F034_v1,LDHA,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,"According to CellAge, LDHA is associated with cellular senescence.",train
+F034_v2,LDHA,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,CellAge database: is LDHA catalogued as a senescence gene?,train
+F035_v1,PKM,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,"According to CellAge, PKM is associated with cellular senescence.",test
+F035_v2,PKM,CellAge,hard_negative_paraphrase,NOT_SUPPORTED,CellAge database: is PKM catalogued as a senescence gene?,test

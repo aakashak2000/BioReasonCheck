@@ -499,6 +499,8 @@ def main():
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--dry-run", action="store_true",
                         help="Print detected columns and counts; write nothing")
+    parser.add_argument("--skip-facts", action="store_true",
+                        help="Skip step 4 (facts.csv rebuild); use existing facts.csv for steps 5-6")
     args = parser.parse_args()
 
     OUT.mkdir(parents=True, exist_ok=True)
@@ -511,7 +513,17 @@ def main():
         return
 
     valid_genes = step3_valid_genes(cellage_ref, og_ref, args.dry_run)
-    facts = step4_facts(cellage_ref, og_ref, args.dry_run, args.seed)
+
+    if args.skip_facts:
+        facts_path = OUT / "facts.csv"
+        if not facts_path.exists():
+            print(f"[ERROR] --skip-facts set but {facts_path} not found. Run without --skip-facts first.")
+            return
+        facts = pd.read_csv(facts_path)
+        print(f"[Step 4] Skipped — loaded existing facts.csv ({len(facts)} rows)")
+    else:
+        facts = step4_facts(cellage_ref, og_ref, args.dry_run, args.seed)
+
     claims = step5_benchmark_claims(facts, args.dry_run)
     step6_benchmark_jsonl(claims, args.dry_run)
 
