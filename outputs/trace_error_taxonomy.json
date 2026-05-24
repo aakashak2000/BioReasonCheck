@@ -1,17 +1,17 @@
 {
-  "n_rows_analyzed": 150,
+  "n_rows_analyzed": 270,
   "error_taxonomy": {
     "process_as_gene": {
-      "n_flagged": 47,
-      "wrong_rate": 0.4894
+      "n_flagged": 84,
+      "wrong_rate": 0.5714
     },
     "consistency_mismatch": {
-      "n_flagged": 14,
-      "wrong_rate": 0.7143
+      "n_flagged": 22,
+      "wrong_rate": 0.7273
     },
     "source_misattribution": {
-      "n_flagged": 15,
-      "wrong_rate": 0.3333
+      "n_flagged": 23,
+      "wrong_rate": 0.3913
     },
     "fake_trap_bleed": {
       "n_flagged": 0,
@@ -187,6 +187,15 @@
       "snippet": "NOT_SUPPORTED The claim asserts that CISD2 is listed in OpenGenes as a gene whos"
     },
     {
+      "fact_id": "F022",
+      "gene": "FOXO3",
+      "process_terms": [
+        "AUTOPHAGY",
+        "OXIDATIVE STRESS"
+      ],
+      "snippet": "SUPPORTED The claim states that FOXO3 is listed in OpenGenes as a gene whose act"
+    },
+    {
       "fact_id": "F023",
       "gene": "IGF1",
       "process_terms": [
@@ -215,36 +224,38 @@
       "fact_id": "F026",
       "gene": "EEF2",
       "process_terms": [
-        "PROTEOSTASIS",
-        "SENESCENCE"
+        "MTORC1",
+        "MTOR",
+        "PROTEOSTASIS"
       ],
-      "snippet": "NOT_SUPPORTED The claim states that EEF2 is listed in OpenGenes as associated wi"
+      "snippet": "NOT_SUPPORTED The claim asserts that EEF2 has consistent, well-supported evidenc"
     },
     {
       "fact_id": "F027",
       "gene": "PRKAR2B",
       "process_terms": [
+        "PROTEOSTASIS",
         "SENESCENCE"
       ],
-      "snippet": "NOT_SUPPORTED The PRKAR2B gene encodes a regulatory subunit of protein kinase A "
+      "snippet": "NOT_SUPPORTED PRKAR2B encodes a regulatory subunit of protein kinase A (PKA), a "
     },
     {
       "fact_id": "F028",
       "gene": "G6PD",
       "process_terms": [
-        "PROTEOSTASIS",
-        "SENESCENCE",
+        "MTOR",
         "OXIDATIVE STRESS"
       ],
-      "snippet": "NOT_SUPPORTED The claim states that G6PD is listed in OpenGenes as associated wi"
+      "snippet": "NOT_SUPPORTED The claim asserts that G6PD has consistent, well-supported evidenc"
     },
     {
       "fact_id": "F029",
       "gene": "TOPORS",
       "process_terms": [
+        "PROTEOSTASIS",
         "SENESCENCE"
       ],
-      "snippet": "SUPPORTED The protein TOPORS (Topoisomerase III alpha) is primarily characterize"
+      "snippet": "NOT_SUPPORTED The protein TOPORS (Topoisomerase III alpha) is primarily associat"
     },
     {
       "fact_id": "F031",
@@ -400,7 +411,7 @@
         "SASP",
         "SENESCENCE"
       ],
-      "snippet": "NOT_SUPPORTED The claim states that SNRP9X is listed as a cellular senescence ge"
+      "snippet": "SUPPORTED The claim states that SNRP9X is listed as a cellular senescence gene i"
     },
     {
       "fact_id": "F049",
@@ -417,39 +428,65 @@
         "SENESCENCE"
       ],
       "snippet": "NOT_SUPPORTED The claim states that TERT2B is listed as a cellular senescence ge"
+    },
+    {
+      "fact_id": "F052",
+      "gene": "PPARG",
+      "process_terms": [
+        "MTOR"
+      ],
+      "snippet": "NOT_SUPPORTED PPARG (peroxisome proliferator-activated receptor gamma) is a nucl"
+    },
+    {
+      "fact_id": "F053",
+      "gene": "GPX4",
+      "process_terms": [
+        "SASP",
+        "SENESCENCE",
+        "OXIDATIVE STRESS"
+      ],
+      "snippet": "NOT_SUPPORTED The claim asserts that GPX4 has consistent, well-supported evidenc"
     }
   ],
   "top_process_terms": [
     {
       "term": "SENESCENCE",
-      "count": 43
+      "count": 70
     },
     {
       "term": "SASP",
-      "count": 12
+      "count": 23
     },
     {
       "term": "MTOR",
-      "count": 5
+      "count": 11
     },
     {
       "term": "PROTEOSTASIS",
-      "count": 4
+      "count": 10
     },
     {
       "term": "OXIDATIVE STRESS",
-      "count": 3
-    },
-    {
-      "term": "AUTOPHAGY",
-      "count": 1
+      "count": 6
     },
     {
       "term": "INFLAMMAGING",
-      "count": 1
+      "count": 4
+    },
+    {
+      "term": "AUTOPHAGY",
+      "count": 2
     },
     {
       "term": "APOPTOSIS",
+      "count": 1
+    },
+    {
+      "term": "MTORC1",
+      "count": 1
+    },
+    {
+      "term": "INSULIN SIGNALING",
       "count": 1
     }
   ]

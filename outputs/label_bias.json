@@ -2,48 +2,47 @@
   "split": "test",
   "label_distribution": {
     "binary": {
-      "n": 15,
-      "pct_SUPPORTED": 6.7,
-      "pct_NOT_SUPPORTED": 93.3,
+      "n": 26,
+      "pct_SUPPORTED": 7.7,
+      "pct_NOT_SUPPORTED": 92.3,
       "pct_INSUFFICIENT_EVIDENCE": 0.0,
       "raw_counts": {
-        "NOT_SUPPORTED": 14,
-        "SUPPORTED": 1
+        "NOT_SUPPORTED": 24,
+        "SUPPORTED": 2
       }
     },
     "ternary": {
-      "n": 15,
-      "pct_SUPPORTED": 60.0,
-      "pct_NOT_SUPPORTED": 40.0,
+      "n": 26,
+      "pct_SUPPORTED": 42.3,
+      "pct_NOT_SUPPORTED": 57.7,
       "pct_INSUFFICIENT_EVIDENCE": 0.0,
       "raw_counts": {
-        "SUPPORTED": 9,
-        "NOT_SUPPORTED": 6
+        "NOT_SUPPORTED": 15,
+        "SUPPORTED": 11
       }
     },
     "mcq": {
-      "n": 15,
-      "pct_SUPPORTED": 66.7,
-      "pct_NOT_SUPPORTED": 26.7,
-      "pct_INSUFFICIENT_EVIDENCE": 6.7,
+      "n": 26,
+      "pct_SUPPORTED": 80.8,
+      "pct_NOT_SUPPORTED": 19.2,
+      "pct_INSUFFICIENT_EVIDENCE": 0.0,
       "raw_counts": {
-        "SUPPORTED": 10,
-        "NOT_SUPPORTED": 4,
-        "INSUFFICIENT_EVIDENCE": 1
+        "SUPPORTED": 21,
+        "NOT_SUPPORTED": 5
       }
     }
   },
   "false_positive_rate_pct": {
-    "binary": 0.0,
-    "ternary": 57.1,
-    "mcq": 85.7
+    "binary": 9.1,
+    "ternary": 54.5,
+    "mcq": 81.8
   },
   "false_negative_rate_pct": {
-    "binary": 83.3,
-    "ternary": 33.3,
-    "mcq": 50.0
+    "binary": 90.0,
+    "ternary": 50.0,
+    "mcq": 30.0
   },
-  "n_unstable_facts": 14,
+  "n_unstable_facts": 24,
   "binary_to_mcq_transition": {
     "SUPPORTED": {
       "SUPPORTED": 0,
@@ -51,9 +50,9 @@
       "INSUFFICIENT_EVIDENCE": 0
     },
     "NOT_SUPPORTED": {
-      "SUPPORTED": 10,
-      "NOT_SUPPORTED": 2,
-      "INSUFFICIENT_EVIDENCE": 1
+      "SUPPORTED": 20,
+      "NOT_SUPPORTED": 3,
+      "INSUFFICIENT_EVIDENCE": 0
     },
     "INSUFFICIENT_EVIDENCE": {
       "SUPPORTED": 0,

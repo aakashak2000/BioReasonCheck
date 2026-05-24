@@ -1,6 +1,6 @@
 {
   "fake_trap_contamination": {
-    "total_non_trap_rows": 45,
+    "total_non_trap_rows": 85,
     "rows_with_leakage": 0,
     "leakage_rate": 0.0,
     "per_symbol_counts": {
@@ -11,5 +11,9 @@
       "TERT2B": 0
     },
     "total_leakage_events": 0
-  }
+  },
+  "spearman_rho": -0.1338,
+  "spearman_p": 0.5146,
+  "odds_ratio": null,
+  "n_correlation": 26
 }

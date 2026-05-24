@@ -1,78 +1,82 @@
 # BioReasonCheck-FI
-## A Format Instability Benchmark for LongevityLLM
+### Format Instability Benchmark for LongevityLLM
+**Track 01 · Insilico Medicine Hackathon 2026**
 
-**Hackathon 2025 · Track 01 · LongevityLLM Benchmarking**  
 GitHub: https://github.com/aakashak2000/BioReasonCheck
 
 ---
 
-### The Problem
+## The Problem
 
-LongevityLLM is a specialist AI model for aging biology. But does it give consistent answers, or does it change its answer depending on *how* the question is framed? A model that contradicts itself based on format cannot be trusted as a scientific knowledge source.
-
----
-
-### What We Built
-
-A benchmark of **150 prompts** (50 biological facts × 3 question formats) drawn from CellAge and OpenGenes — two curated aging-gene databases. Each fact is posed as:
-- **Binary** — "Answer YES or NO"
-- **Ternary** — "Classify: SUPPORTED / NOT\_SUPPORTED / INSUFFICIENT\_EVIDENCE"
-- **MCQ** — "Choose A / B / C / D"
-
-We also embedded 5 **fake gene symbols** (AGEX1, LNVT3, SNRP9X, FOXQ7L, TERT2B) to detect hallucination, and 15 **housekeeping genes** (GAPDH, ACTB, FASN) as hard negatives.
+LongevityLLM gives contradictory answers to the same biological fact depending on how the question is framed. A binary API call, a ternary classifier, and an MCQ interface can return opposite verdicts for the same gene — not because the biology changed, but because the prompt shape did. No prior evaluation had measured this. We built the test.
 
 ---
 
-### Key Results
+## What We Built
+
+**270-prompt benchmark** grounded in CellAge and OpenGenes database exports — not PubMed abstracts, not Wikipedia.
+
+- **60 unique genes** across 5 categories: confirmed senescence (CellAge), lifespan-extending (OpenGenes), mixed-evidence, metabolic hard negatives, and invented hallucination traps
+- **3 structurally distinct formats per fact:** binary (YES/NO), ternary (3-class label), MCQ (4-option, correct position rotated)
+- **Pre-registered test split** assigned by deterministic gene hash before any analysis ran — prevents metric tuning to reported results
+
+**Diversity across three axes:**
+- *Data:* 5 gene categories from confirmed positives to hallucination traps
+- *Semantic:* 3 claim templates + paraphrase variants; Paraphrase Instability Rate measured formally
+- *Format:* binary / ternary / MCQ — three different output generation strategies
+
+---
+
+## Key Results
 
 | Metric | Value |
 |---|---|
-| **Format Instability Rate** | **93.3%** [Bootstrap CI: 80%–100%] |
-| Binary accuracy | 67% |
-| Ternary accuracy | 47% |
-| MCQ accuracy | 33% |
-| Overall vs majority baseline | 47% vs 47% |
-| McNemar test (all 50 facts) | χ²=4.97, **p=0.026** |
-
-**The model matches the majority-class baseline** — format framing, not biology knowledge, determines its answers.
-
----
-
-### What Drives the Instability
-
-**Label bias:** In binary format, the model says NOT\_SUPPORTED 93% of the time. In MCQ format, it says SUPPORTED 67% of the time. Same facts. The format alone flips the answer.
-
-**MCQ position bias:** The model never selects option D (0/15). Chi-square p=0.033. Accuracy for positions B and D: 0%.
-
-**Process-as-gene confusion:** "SENESCENCE" appears in 43/150 outputs as if it were a gene name. SASP appears 12 times similarly.
-
-**Consistency mismatch:** In 14 cases, the model's reasoning reaches the correct conclusion but the final output is wrong — 71% error rate in this category.
+| **Format Instability Rate (pre-registered test)** | **95.0%** [Bootstrap CI: 85%–100%] |
+| FIR — all 60 genes | 76.7% [Wilson CI: 65%–86%] |
+| Ternary accuracy vs majority-class baseline | 38.5% vs 42.3% |
+| McNemar p-value (all 60 genes) | **0.021** |
+| Cohen's κ — binary vs MCQ | **−0.328** (worse than chance) |
+| Cramér's V — format vs predicted label | **0.760** (very strong association) |
+| Consistency mismatch error rate | **72.7%** (22 cases) |
+| Claude Sonnet 4.6 MCQ vs L-LLM MCQ | **84.6% vs 34.6%** |
 
 ---
 
-### Baseline Comparison — Claude Sonnet 4.6
+## The Mechanism
 
-| Metric | LongevityLLM | Claude Sonnet 4.6 |
-|---|---|---|
-| MCQ accuracy | 30% | **100%** |
-| Format Instability Rate | 74% | **40%** |
-| Ternary accuracy | 50% | 50% |
+**Format dictates the label. Biology is irrelevant.**
 
-A general-purpose model with no aging biology training is substantially more format-stable than the specialist model.
+- Binary triggers NOT_SUPPORTED **92%** of the time → false negative rate **83%**
+- MCQ triggers SUPPORTED **81%** of the time → false positive rate **86%**
+- Cramér's V = **0.760**: format alone predicts the label choice with very strong effect size
+- Cohen's κ = **−0.328** (binary vs MCQ): formats are statistically independent — worse than chance agreement
 
----
-
-### Recommendations for Insilico Medicine
-
-1. **Avoid binary format** for L-LLM fact retrieval — systematic NOT\_SUPPORTED bias makes it unreliable
-2. **Rotate MCQ positions** or avoid MCQ — model refuses to select B or D
-3. **Use consistency score as a filter** — reasoning contradicting its own output predicts 71% of errors
-4. **Add FIR as a standard eval metric** for any future fine-tuning of L-LLM
+**Fine-tuning amplified format sensitivity.** Claude Sonnet 4.6 with no aging biology training achieves 84.6% MCQ accuracy vs L-LLM's 34.6%. Domain specialisation made format instability worse, not better.
 
 ---
 
-### Tech Stack
+## The Reasoning Scorer
 
-Python · HuggingFace Inference Endpoints · CellAge · OpenGenes · scikit-learn · scipy · pandas · Anthropic API (baseline)
+Automatic error detector using the model's own chain-of-thought — no human labels needed.
 
-**All code, data, and outputs:** https://github.com/aakashak2000/BioReasonCheck
+- **Process-as-gene confusion:** SENESCENCE used as a gene symbol in **78%** of ternary traces
+- **Consistency mismatch:** 22 cases where reasoning concludes correctly but output contradicts it → **72.7% error rate**
+- **Operational metric:** Scorer recall = 85%, F1 = 0.694 — deployable as a runtime filter today
+- Each flagged trace = a ready DPO preference pair for future fine-tuning
+
+---
+
+## Recommendations for Insilico Medicine
+
+1. **Avoid binary format** for L-LLM gene fact retrieval — systematic NOT_SUPPORTED bias regardless of true label
+2. **Rotate MCQ option positions** in all deployed interfaces — model applies strong positional heuristics
+3. **Deploy consistency scorer as runtime filter** — flags 85% of errors automatically, no annotation needed
+4. **Add FIR as a standard metric** in all future L-LLM fine-tuning runs alongside accuracy
+
+---
+
+## Stack
+
+Python · pandas · scipy · scikit-learn · HuggingFace Inference API · CellAge · OpenGenes · Anthropic API (Claude Sonnet 4.6 baseline)
+
+**GitHub:** https://github.com/aakashak2000/BioReasonCheck

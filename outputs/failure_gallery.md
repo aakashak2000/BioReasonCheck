@@ -4,9 +4,9 @@ This gallery catalogues three categories of model failure. All examples come fro
 
 | Category | Count |
 |---|---|
-| Format flips (right in ≥1 format, wrong in ≥1 other) | 37 |
+| Format flips (right in ≥1 format, wrong in ≥1 other) | 65 |
 | Hallucinated fake-trap symbols in output | 0 |
-| Consistently wrong across all formats | 8 |
+| Consistently wrong across all formats | 17 |
 
 ---
 
@@ -27,14 +27,13 @@ The model answers **correctly in at least one format** but **incorrectly in at l
 | F015 | **NUDT5** | `SUPPORTED` | ternary, mcq | binary | binary:NO / mcq:SUPPORTED / ternary:SUPPORTED |
 | F017 | **CDKN2A** | `SUPPORTED` | mcq | binary, ternary | binary:NO / mcq:SUPPORTED / ternary:NOT_SUPPORTED |
 | F020 | **TERT** | `SUPPORTED` | mcq | binary, ternary | binary:NO / mcq:SUPPORTED / ternary:NOT_SUPPORTED |
-| F022 | **MTOR** | `SUPPORTED` | ternary | binary, mcq | binary:NO / mcq:NOT_SUPPORTED / ternary:SUPPORTED |
 | F023 | **IGF1** | `SUPPORTED` | mcq | binary, ternary | binary:NO / mcq:SUPPORTED / ternary:NOT_SUPPORTED |
 | F024 | **KL** | `SUPPORTED` | ternary | binary, mcq | binary:NO / mcq:NOT_SUPPORTED / ternary:SUPPORTED |
 | F026 | **EEF2** | `INSUFFICIENT_EVIDENCE` | binary | ternary, mcq | binary:NO / mcq:SUPPORTED / ternary:NOT_SUPPORTED |
 | F027 | **PRKAR2B** | `INSUFFICIENT_EVIDENCE` | binary | ternary, mcq | binary:NO / mcq:SUPPORTED / ternary:NOT_SUPPORTED |
 | F028 | **G6PD** | `INSUFFICIENT_EVIDENCE` | binary | ternary, mcq | binary:NO / mcq:SUPPORTED / ternary:NOT_SUPPORTED |
-| F029 | **TOPORS** | `INSUFFICIENT_EVIDENCE` | binary, mcq | ternary | binary:NO / mcq:INSUFFICIENT_EVIDENCE / ternary:SUPPORTED |
-| F030 | **SIRT4** | `INSUFFICIENT_EVIDENCE` | binary | ternary, mcq | binary:NO / mcq:SUPPORTED / ternary:SUPPORTED |
+| F029 | **TOPORS** | `INSUFFICIENT_EVIDENCE` | binary | ternary, mcq | binary:NO / mcq:SUPPORTED / ternary:NOT_SUPPORTED |
+| F030 | **SIRT4** | `INSUFFICIENT_EVIDENCE` | binary | ternary, mcq | binary:NO / mcq:SUPPORTED / ternary:NOT_SUPPORTED |
 | F031 | **GAPDH** | `NOT_SUPPORTED` | binary, ternary | mcq | binary:NO / mcq:SUPPORTED / ternary:NOT_SUPPORTED |
 | F032 | **ACTB** | `NOT_SUPPORTED` | binary, ternary | mcq | binary:NO / mcq:SUPPORTED / ternary:NOT_SUPPORTED |
 | F033 | **TUBB** | `NOT_SUPPORTED` | binary, ternary | mcq | binary:NO / mcq:SUPPORTED / ternary:NOT_SUPPORTED |
@@ -46,8 +45,9 @@ The model answers **correctly in at least one format** but **incorrectly in at l
 | F040 | **PGAM1** | `NOT_SUPPORTED` | binary | ternary, mcq | binary:NO / mcq:SUPPORTED / ternary:SUPPORTED |
 | F041 | **FASN** | `NOT_SUPPORTED` | binary | ternary, mcq | binary:NO / mcq:SUPPORTED / ternary:SUPPORTED |
 | F042 | **ACACA** | `NOT_SUPPORTED` | binary | ternary, mcq | binary:NO / mcq:SUPPORTED / ternary:SUPPORTED |
+| F043 | **ACLY** | `NOT_SUPPORTED` | binary | ternary, mcq | binary:NO / mcq:SUPPORTED / ternary:SUPPORTED |
 
-_... 7 more format flips not shown._
+_... 35 more format flips not shown._
 
 ---
 
@@ -73,3 +73,12 @@ The model gets the same fact **wrong in every format**. These failures are not f
 | F021 | **CISD2** | `SUPPORTED` | `NO` | `NOT_SUPPORTED` | `NOT_SUPPORTED` |
 | F025 | **GSTA4** | `SUPPORTED` | `NO` | `NOT_SUPPORTED` | `NOT_SUPPORTED` |
 | F046 | **AGEX1** | `NOT_SUPPORTED` | `YES` | `SUPPORTED` | `SUPPORTED` |
+| F002_v1 | **NRSN2** | `SUPPORTED` | `NO` | `NOT_SUPPORTED` | `NOT_SUPPORTED` |
+| F002_v2 | **NRSN2** | `SUPPORTED` | `NO` | `NOT_SUPPORTED` | `NOT_SUPPORTED` |
+| F003_v1 | **SUMO3** | `SUPPORTED` | `NO` | `NOT_SUPPORTED` | `NOT_SUPPORTED` |
+| F003_v2 | **SUMO3** | `SUPPORTED` | `NO` | `NOT_SUPPORTED` | `NOT_SUPPORTED` |
+| F004_v1 | **ROMO1** | `SUPPORTED` | `NO` | `NOT_SUPPORTED` | `NOT_SUPPORTED` |
+| F018_v1 | **IKBKB** | `SUPPORTED` | `NO` | `NOT_SUPPORTED` | `NOT_SUPPORTED` |
+| F018_v2 | **IKBKB** | `SUPPORTED` | `NO` | `NOT_SUPPORTED` | `NOT_SUPPORTED` |
+| F019_v1 | **CYB5R3** | `SUPPORTED` | `NO` | `NOT_SUPPORTED` | `NOT_SUPPORTED` |
+| F019_v2 | **CYB5R3** | `SUPPORTED` | `NO` | `NOT_SUPPORTED` | `NOT_SUPPORTED` |

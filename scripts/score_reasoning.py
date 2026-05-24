@@ -255,6 +255,65 @@ def main():
         print(f"  hallucination_score:     r={r_hall:+.4f}  p={p_hall:.4f}")
         print(f"  1 - consistency_score:   r={r_cons:+.4f}  p={p_cons:.4f}")
 
+        # ── Spearman ρ on test split, ternary only ──
+        from scipy.stats import spearmanr
+        claims_full = pd.read_csv(args.claims if hasattr(args, "claims") else
+                                  ROOT / "data" / "processed" / "benchmark_claims.csv")[
+            ["id", "split"]]
+        test_ternary = valid_df.copy()
+        # Re-merge split if not already present
+        if "split" not in test_ternary.columns or test_ternary["split"].isna().all():
+            test_ternary = test_ternary.merge(claims_full, on="id", how="left",
+                                               suffixes=("", "_cl"))
+            if "split_cl" in test_ternary.columns:
+                test_ternary["split"] = test_ternary["split"].fillna(
+                    test_ternary["split_cl"])
+                test_ternary.drop(columns=["split_cl"], inplace=True)
+
+        test_ternary = test_ternary[
+            (test_ternary["split"] == "test") &
+            (test_ternary["format_type"] == "ternary")
+        ].copy()
+
+        spearman_rho = odds_ratio = spearman_p = None
+        n_corr = len(test_ternary)
+        if n_corr < 5:
+            print(f"\n── Spearman ρ (test ternary): not enough data (n={n_corr}) ──")
+        else:
+            # total_flag_count = number of non-ideal scores (hallucination > 0 and consistency < 1)
+            test_ternary["flag_count"] = (
+                (test_ternary["hallucination_score"] > 0).astype(int) +
+                (test_ternary["consistency_score"] < 1.0).astype(int)
+            )
+            x_values = test_ternary["flag_count"].tolist()
+            y_values = test_ternary["error"].tolist()
+
+            spearman_rho, spearman_p = spearmanr(x_values, y_values)
+
+            flagged = test_ternary[test_ternary["flag_count"] > 0]
+            unflagged = test_ternary[test_ternary["flag_count"] == 0]
+            wr_flagged = flagged["error"].mean() if len(flagged) > 0 else None
+            wr_unflagged = unflagged["error"].mean() if len(unflagged) > 0 else None
+
+            if (wr_flagged is not None and wr_unflagged is not None and
+                    wr_flagged < 1.0 and wr_unflagged < 1.0 and wr_unflagged > 0):
+                odds_ratio = (wr_flagged / (1 - wr_flagged)) / \
+                             (wr_unflagged / (1 - wr_unflagged))
+            elif wr_unflagged == 0 and wr_flagged is not None:
+                odds_ratio = float("inf")
+            else:
+                odds_ratio = None
+
+            print(f"\n── Spearman ρ (test split, ternary, n={n_corr}) ──")
+            print(f"  Spearman ρ = {spearman_rho:.3f} (p = {spearman_p:.4f})")
+            or_str = f"{odds_ratio:.2f}" if odds_ratio is not None and odds_ratio != float("inf") \
+                     else ("∞" if odds_ratio == float("inf") else "N/A")
+            print(f"  Odds ratio (flagged vs unflagged): {or_str}")
+            print(f"  N = {n_corr} test ternary traces")
+            if wr_flagged is not None and wr_unflagged is not None:
+                print(f"  Wrong rate — flagged: {wr_flagged:.1%}  "
+                      f"unflagged: {wr_unflagged:.1%}")
+
         # Threshold analysis: flag rows with composite_score < 0.5 as "predicted wrong"
         threshold = 0.5
         valid_df["predicted_wrong"] = valid_df["composite_score"] < threshold
@@ -381,7 +440,12 @@ def main():
             "leakage_rate": round(contamination_rate, 4),
             "per_symbol_counts": contamination_counts,
             "total_leakage_events": len(contamination_events),
-        }
+        },
+        "spearman_rho": round(spearman_rho, 4) if spearman_rho is not None else None,
+        "spearman_p": round(spearman_p, 4) if spearman_p is not None else None,
+        "odds_ratio": round(odds_ratio, 2) if (odds_ratio is not None and
+                                               odds_ratio != float("inf")) else odds_ratio,
+        "n_correlation": n_corr if 'n_corr' in dir() else 0,
     }
     metrics_path = args.out.parent / "reasoning_metrics.json"
     with open(metrics_path, "w") as f:

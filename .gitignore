@@ -19,3 +19,6 @@ outputs/reasoning_scores.jsonl
 /opengenes.csv
 /opengenes_lifespan.csv
 /opengenes_raw.json
+
+# Claude Code local settings
+.claude/

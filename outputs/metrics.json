@@ -1,107 +1,163 @@
 {
   "overall": {
-    "accuracy": 0.4667,
-    "macro_f1": 0.3316,
-    "balanced_accuracy": 0.3651,
-    "n": 15
+    "accuracy": 0.3846,
+    "macro_f1": 0.2869,
+    "balanced_accuracy": 0.3182,
+    "n": 26
   },
   "per_format": {
     "binary": {
-      "accuracy": 0.6667,
-      "f1": 0.2857,
-      "n": 15
+      "accuracy": 0.6154,
+      "f1": 0.1667,
+      "n": 26
     },
     "ternary": {
-      "accuracy": 0.4667,
-      "f1": 0.3316,
-      "n": 15
+      "accuracy": 0.3846,
+      "f1": 0.2869,
+      "n": 26
     },
     "mcq": {
-      "accuracy": 0.3333,
-      "f1": 0.3333,
-      "n": 15
+      "accuracy": 0.3462,
+      "f1": 0.3462,
+      "n": 26
+    }
+  },
+  "paraphrase_instability": {
+    "binary": {
+      "mismatches": 0,
+      "checked": 6,
+      "rate": 0.0
+    },
+    "ternary": {
+      "mismatches": 2,
+      "checked": 6,
+      "rate": 0.3333
+    },
+    "mcq": {
+      "mismatches": 1,
+      "checked": 6,
+      "rate": 0.1667
     }
   },
   "format_instability": {
-    "rate": 0.9333,
-    "unstable_facts": 14,
-    "facts_with_2plus_formats": 15
+    "rate": 0.95,
+    "unstable_facts": 19,
+    "facts_with_2plus_formats": 20
   },
   "baselines": {
     "majority_class": "NOT_SUPPORTED",
-    "majority_accuracy": 0.4667,
-    "majority_f1": 0.2121,
+    "majority_accuracy": 0.4231,
+    "majority_f1": 0.1982,
     "random_accuracy": 0.3333,
     "random_f1": 0.3333
   },
   "unparseable": {
     "count": 0,
-    "total": 45
+    "total": 78
   },
   "statistical_tests": {
-    "wilson_ci_lo": 0.7019,
-    "wilson_ci_hi": 0.9882,
-    "wilson_k": 14,
-    "wilson_n": 15,
+    "wilson_ci_lo": 0.7639,
+    "wilson_ci_hi": 0.9911,
+    "wilson_k": 19,
+    "wilson_n": 20,
     "fir_wilson_ci": [
-      0.7019,
-      0.9882
+      0.7639,
+      0.9911
     ],
     "fir_bootstrap_ci": [
-      0.8,
+      0.85,
       1.0
     ],
-    "mcnemar_b": 8,
-    "mcnemar_c": 3,
-    "mcnemar_chi2": 1.4545,
-    "mcnemar_p": 0.2278
+    "mcnemar_b": 14,
+    "mcnemar_c": 7,
+    "mcnemar_chi2": 1.7143,
+    "mcnemar_p": 0.1904,
+    "cohens_kappa": {
+      "binary_ternary": -0.0345,
+      "binary_mcq": -0.3281,
+      "ternary_mcq": -0.25
+    },
+    "cramers_v": 0.7603
   },
   "per_gene_type": {
     "cellage": {
       "n": 9,
       "accuracy": 0.5556
     },
+    "cellage_paraphrase": {
+      "n": 6,
+      "accuracy": 0.5
+    },
+    "fake_trap": {
+      "n": 6,
+      "accuracy": 0.3333
+    },
     "hard_negative": {
       "n": 21,
       "accuracy": 0.5238
+    },
+    "hard_negative_paraphrase": {
+      "n": 6,
+      "accuracy": 0.6667
     },
     "og_extending": {
       "n": 9,
       "accuracy": 0.3333
     },
-    "og_mixed": {
+    "og_extending_paraphrase": {
       "n": 6,
-      "accuracy": 0.5
+      "accuracy": 0.3333
+    },
+    "og_mixed": {
+      "n": 15,
+      "accuracy": 0.3333
     }
   },
   "all_facts": {
     "overall": {
-      "accuracy": 0.5,
-      "macro_f1": 0.3496,
-      "balanced_accuracy": 0.37,
-      "n": 50
+      "accuracy": 0.4222,
+      "macro_f1": 0.309,
+      "balanced_accuracy": 0.3444,
+      "n": 90
     },
     "per_format": {
       "binary": {
-        "accuracy": 0.56,
-        "f1": 0.3125,
-        "n": 50
+        "accuracy": 0.5333,
+        "f1": 0.25,
+        "n": 90
       },
       "ternary": {
-        "accuracy": 0.5,
-        "f1": 0.3496,
-        "n": 50
+        "accuracy": 0.4222,
+        "f1": 0.309,
+        "n": 90
       },
       "mcq": {
-        "accuracy": 0.3,
-        "f1": 0.3,
-        "n": 50
+        "accuracy": 0.3333,
+        "f1": 0.3333,
+        "n": 90
+      }
+    },
+    "paraphrase_instability": {
+      "binary": {
+        "mismatches": 1,
+        "checked": 30,
+        "rate": 0.0333
+      },
+      "ternary": {
+        "mismatches": 10,
+        "checked": 30,
+        "rate": 0.3333
+      },
+      "mcq": {
+        "mismatches": 3,
+        "checked": 30,
+        "rate": 0.1
       }
     },
     "format_instability": {
-      "rate": 0.74,
-      "unstable_facts": 37,
-      "facts_with_2plus_formats": 50
+      "rate": 0.7667,
+      "unstable_facts": 46,
+      "facts_with_2plus_formats": 60
     },
     "baselines": {
       "majority_class": "SUPPORTED",
@@ -112,81 +168,99 @@
     },
     "unparseable": {
       "count": 0,
-      "total": 150
+      "total": 270
     },
     "statistical_tests": {
-      "wilson_ci_lo": 0.6045,
-      "wilson_ci_hi": 0.8413,
-      "wilson_k": 37,
-      "wilson_n": 50,
+      "wilson_ci_lo": 0.6456,
+      "wilson_ci_hi": 0.8556,
+      "wilson_k": 46,
+      "wilson_n": 60,
       "fir_wilson_ci": [
-        0.6045,
-        0.8413
+        0.6456,
+        0.8556
       ],
       "fir_bootstrap_ci": [
-        0.62,
-        0.86
+        0.6667,
+        0.8667
       ],
-      "mcnemar_b": 21,
-      "mcnemar_c": 8,
-      "mcnemar_chi2": 4.9655,
-      "mcnemar_p": 0.0259
+      "mcnemar_b": 36,
+      "mcnemar_c": 18,
+      "mcnemar_chi2": 5.3519,
+      "mcnemar_p": 0.0207,
+      "cohens_kappa": {
+        "binary_ternary": 0.0816,
+        "binary_mcq": -0.1858,
+        "ternary_mcq": 0.1316
+      },
+      "cramers_v": 0.736
     },
     "per_gene_type": {
       "cellage": {
         "n": 45,
         "accuracy": 0.5556
       },
+      "cellage_paraphrase": {
+        "n": 30,
+        "accuracy": 0.3
+      },
       "fake_trap": {
         "n": 15,
-        "accuracy": 0.5333
+        "accuracy": 0.4667
       },
       "hard_negative": {
         "n": 45,
         "accuracy": 0.5333
       },
+      "hard_negative_paraphrase": {
+        "n": 30,
+        "accuracy": 0.6333
+      },
       "og_extending": {
         "n": 30,
-        "accuracy": 0.1667
+        "accuracy": 0.2333
+      },
+      "og_extending_paraphrase": {
+        "n": 30,
+        "accuracy": 0.2667
       },
       "og_mixed": {
-        "n": 15,
-        "accuracy": 0.4
+        "n": 45,
+        "accuracy": 0.3778
       }
     }
   },
   "split_comparison": {
     "all_facts": {
-      "fir": 0.74,
-      "unstable_facts": 37,
-      "facts_with_2plus": 50,
-      "binary_accuracy": 0.56,
-      "ternary_accuracy": 0.5,
-      "mcq_accuracy": 0.3,
-      "overall_accuracy": 0.5,
+      "fir": 0.7667,
+      "unstable_facts": 46,
+      "facts_with_2plus": 60,
+      "binary_accuracy": 0.5333,
+      "ternary_accuracy": 0.4222,
+      "mcq_accuracy": 0.3333,
+      "overall_accuracy": 0.4222,
       "fir_wilson_ci": [
-        0.6045,
-        0.8413
+        0.6456,
+        0.8556
       ],
       "fir_bootstrap_ci": [
-        0.62,
-        0.86
+        0.6667,
+        0.8667
       ]
     },
     "test": {
-      "fir": 0.9333,
-      "unstable_facts": 14,
-      "facts_with_2plus": 15,
-      "binary_accuracy": 0.6667,
-      "ternary_accuracy": 0.4667,
-      "mcq_accuracy": 0.3333,
-      "overall_accuracy": 0.4667,
+      "fir": 0.95,
+      "unstable_facts": 19,
+      "facts_with_2plus": 20,
+      "binary_accuracy": 0.6154,
+      "ternary_accuracy": 0.3846,
+      "mcq_accuracy": 0.3462,
+      "overall_accuracy": 0.3846,
       "fir_wilson_ci": [
-        0.7019,
-        0.9882
+        0.7639,
+        0.9911
       ],
       "fir_bootstrap_ci": [
-        0.8,
+        0.85,
         1.0
       ]
     }

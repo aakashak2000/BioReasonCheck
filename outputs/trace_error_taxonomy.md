@@ -1,14 +1,14 @@
 # Trace Error Taxonomy
 
-**Rows analysed:** 150  
+**Rows analysed:** 270  
 
 ## Summary
 
 | Category | N Flagged | Wrong Rate |
 |---|---|---|
-| process_as_gene | 47 | 48.9% |
-| consistency_mismatch | 14 | 71.4% |
-| source_misattribution | 15 | 33.3% |
+| process_as_gene | 84 | 57.1% |
+| consistency_mismatch | 22 | 72.7% |
+| source_misattribution | 23 | 39.1% |
 | fake_trap_bleed | 0 | 0.0% |
 
 ## Process-as-Gene Instances
@@ -37,26 +37,28 @@ The model treats biological *processes* as if they were *gene symbols*, referenc
 | F019 | **CYB5R3** | `OXIDATIVE STRESS` | NOT_SUPPORTED The claim asserts that CYB5R3 is listed in OpenGenes as a gene who |
 | F020 | **TERT** | `SENESCENCE` | NOT_SUPPORTED The claim states that TERT is listed in OpenGenes as a gene whose  |
 | F021 | **CISD2** | `SENESCENCE`, `APOPTOSIS` | NOT_SUPPORTED The claim asserts that CISD2 is listed in OpenGenes as a gene whos |
+| F022 | **FOXO3** | `AUTOPHAGY`, `OXIDATIVE STRESS` | SUPPORTED The claim states that FOXO3 is listed in OpenGenes as a gene whose act |
 | F023 | **IGF1** | `MTOR` | NOT_SUPPORTED The claim states that IGF1 is listed in OpenGenes as a gene whose  |
 | F024 | **KL** | `SENESCENCE` | SUPPORTED The claim states that KL (KLF) is listed in OpenGenes as a gene whose  |
 | F025 | **GSTA4** | `PROTEOSTASIS`, `OXIDATIVE STRESS` | NOT_SUPPORTED The claim asserts that GSTA4 is listed in OpenGenes as a gene whos |
-| F026 | **EEF2** | `PROTEOSTASIS`, `SENESCENCE` | NOT_SUPPORTED The claim states that EEF2 is listed in OpenGenes as associated wi |
-| F027 | **PRKAR2B** | `SENESCENCE` | NOT_SUPPORTED The PRKAR2B gene encodes a regulatory subunit of protein kinase A  |
-| F028 | **G6PD** | `PROTEOSTASIS`, `SENESCENCE`, `OXIDATIVE STRESS` | NOT_SUPPORTED The claim states that G6PD is listed in OpenGenes as associated wi |
-| F029 | **TOPORS** | `SENESCENCE` | SUPPORTED The protein TOPORS (Topoisomerase III alpha) is primarily characterize |
+| F026 | **EEF2** | `MTORC1`, `MTOR`, `PROTEOSTASIS` | NOT_SUPPORTED The claim asserts that EEF2 has consistent, well-supported evidenc |
+| F027 | **PRKAR2B** | `PROTEOSTASIS`, `SENESCENCE` | NOT_SUPPORTED PRKAR2B encodes a regulatory subunit of protein kinase A (PKA), a  |
+| F028 | **G6PD** | `MTOR`, `OXIDATIVE STRESS` | NOT_SUPPORTED The claim asserts that G6PD has consistent, well-supported evidenc |
+| F029 | **TOPORS** | `PROTEOSTASIS`, `SENESCENCE` | NOT_SUPPORTED The protein TOPORS (Topoisomerase III alpha) is primarily associat |
 | F031 | **GAPDH** | `SASP`, `SENESCENCE` | NOT_SUPPORTED The claim states that GAPDH is listed as a cellular senescence gen |
 | F032 | **ACTB** | `SASP`, `SENESCENCE` | NOT_SUPPORTED The claim states that ACTB (beta-actin) is listed as a cellular se |
-| F033 | **TUBB** | `SENESCENCE` | NOT_SUPPORTED The claim states that TUBB (Tubulin Beta) is listed as a cellular  |
 
 ### Top Process Terms
 
 | Term | Count |
 |---|---|
-| `SENESCENCE` | 43 |
-| `SASP` | 12 |
-| `MTOR` | 5 |
-| `PROTEOSTASIS` | 4 |
-| `OXIDATIVE STRESS` | 3 |
-| `AUTOPHAGY` | 1 |
-| `INFLAMMAGING` | 1 |
+| `SENESCENCE` | 70 |
+| `SASP` | 23 |
+| `MTOR` | 11 |
+| `PROTEOSTASIS` | 10 |
+| `OXIDATIVE STRESS` | 6 |
+| `INFLAMMAGING` | 4 |
+| `AUTOPHAGY` | 2 |
 | `APOPTOSIS` | 1 |
+| `MTORC1` | 1 |
+| `INSULIN SIGNALING` | 1 |

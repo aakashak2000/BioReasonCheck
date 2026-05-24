@@ -1,36 +1,36 @@
 {
   "lllm": {
     "binary": {
-      "accuracy": 0.56,
-      "n": 50
+      "accuracy": 0.5333,
+      "n": 90
     },
     "ternary": {
-      "accuracy": 0.5,
-      "n": 50
+      "accuracy": 0.4222,
+      "n": 90
     },
     "mcq": {
-      "accuracy": 0.3,
-      "n": 50
+      "accuracy": 0.3333,
+      "n": 90
     },
-    "fir": 0.74,
-    "fir_unstable": 37,
-    "fir_total": 50
+    "fir": 0.7222,
+    "fir_unstable": 65,
+    "fir_total": 90
   },
   "claude-sonnet-4-6": {
     "binary": {
-      "accuracy": 0.7333,
-      "n": 15
+      "accuracy": 0.6923,
+      "n": 26
     },
     "ternary": {
       "accuracy": 0.5,
-      "n": 8
+      "n": 16
     },
     "mcq": {
-      "accuracy": 1.0,
-      "n": 15
+      "accuracy": 0.8462,
+      "n": 26
     },
-    "fir": 0.4,
-    "fir_unstable": 6,
-    "fir_total": 15
+    "fir": 0.6154,
+    "fir_unstable": 16,
+    "fir_total": 26
   }
 }

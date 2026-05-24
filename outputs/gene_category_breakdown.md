@@ -7,9 +7,13 @@
 | Gene Type | Prompts | Facts | Accuracy | FIR |
 |---|---|---|---|---|
 | cellage | 9 | 3 | 55.6% | 100.0% |
-| og_mixed | 6 | 2 | 50.0% | 100.0% |
+| og_mixed | 15 | 5 | 33.3% | 100.0% |
 | hard_negative | 21 | 7 | 52.4% | 85.7% |
+| fake_trap | 6 | 2 | 33.3% | 50.0% |
+| cellage_paraphrase | 6 | 2 | 50.0% | 100.0% |
+| hard_negative_paraphrase | 6 | 2 | 66.7% | 100.0% |
 | og_extending | 9 | 3 | 33.3% | 100.0% |
+| og_extending_paraphrase | 6 | 2 | 33.3% | 100.0% |
 
 ## Hard-Negative Hallucinations
 

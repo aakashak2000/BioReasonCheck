@@ -18,7 +18,7 @@
 | Majority-class baseline | 47% |
 | L-LLM vs Claude Sonnet 4.6 FIR | 74% vs 40% |
 
-Pre-computed results are in `outputs/`. You can read them without running anything.
+Pre-computed results (based on original 50-fact run) are in `outputs/`. You can read them without running anything. Re-run the pipeline to get updated results on the expanded 270-prompt benchmark.
 
 ---
 
@@ -98,17 +98,17 @@ outputs/                    All pre-computed results (metrics, traces, reports)
 
 ## Benchmark design
 
-**50 facts** across 4 gene categories:
+**60 unique genes · 90 database-grounded claim variants** across 5 gene categories:
 
-| Category | N facts | Gold label | Description |
+| Category | Base claims | Gold label | Description |
 |---|---|---|---|
 | CellAge senescence genes | 15 | SUPPORTED | Real aging genes |
-| OpenGenes lifespan-extending | 10 | SUPPORTED | High-confidence longevity genes |
-| OpenGenes mixed evidence | 5 | INSUFFICIENT_EVIDENCE | Contradictory findings |
+| OpenGenes lifespan-extending | 10 | SUPPORTED | Genes with lifespan-extension-related evidence in OpenGenes |
+| OpenGenes mixed evidence | 15 | INSUFFICIENT_EVIDENCE | Genes with contradictory lifespan findings |
 | Hard negatives (housekeeping) | 15 | NOT_SUPPORTED | Real genes, no aging link |
 | Fake traps | 5 | NOT_SUPPORTED | Invented gene symbols |
 
-Each fact posed in 3 formats → **150 total prompts**. Train/test split: 35/15 facts.
+Plus 30 paraphrase variants (not counted as independent facts for FIR). Each claim posed in 3 formats → **270 total prompts**. Train/test split: gene-consistent, all categories represented in held-out set.
 
 ---
 

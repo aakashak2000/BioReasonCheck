@@ -53,7 +53,7 @@ F051,GH1,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"GH1 has consistent, well-supp
 F052,PPARG,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"PPARG has consistent, well-supported evidence of lifespan extension in OpenGenes.",train
 F053,GPX4,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"GPX4 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train
 F054,GSK3B,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"GSK3B has consistent, well-supported evidence of lifespan extension in OpenGenes.",train
-F055,XRCC6,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"XRCC6 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train
+F055,JAK1,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"JAK1 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train
 F056,HSPA9,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"HSPA9 has consistent, well-supported evidence of lifespan extension in OpenGenes.",test
 F057,JAK2,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"JAK2 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train
 F058,UCP3,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"UCP3 has consistent, well-supported evidence of lifespan extension in OpenGenes.",test

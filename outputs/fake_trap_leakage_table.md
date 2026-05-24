@@ -2,7 +2,7 @@
 
 Fake-trap symbols (invented gene names not in any database) that appeared verbatim in model outputs for **unrelated real-gene rows**, indicating hallucinated cross-contamination.
 
-**Total non-trap rows:** 45  
+**Total non-trap rows:** 85  
 **Rows with leakage:** 0 (0.0%)  
 
 | Fake Symbol | Leakage Count |

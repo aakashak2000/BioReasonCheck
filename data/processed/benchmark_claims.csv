@@ -701,18 +701,18 @@ B. GSK3B has consistent, well-supported evidence of lifespan extension in OpenGe
 C. GSK3B is a general metabolic gene with no aging annotation.
 D. The stated database does not contain an entry for GSK3B.
 Answer with exactly one letter: A, B, C, or D."
-F055,XRCC6,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"XRCC6 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F055_binary,binary,NO,,"Is the following claim supported by the stated database?
-Claim: XRCC6 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+F055,JAK1,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"JAK1 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F055_binary,binary,NO,,"Is the following claim supported by the stated database?
+Claim: JAK1 has consistent, well-supported evidence of lifespan extension in OpenGenes.
 Answer with exactly one word: YES or NO."
-F055,XRCC6,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"XRCC6 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F055_ternary,ternary,INSUFFICIENT_EVIDENCE,,"Evaluate the following claim about aging biology.
-Claim: XRCC6 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+F055,JAK1,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"JAK1 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F055_ternary,ternary,INSUFFICIENT_EVIDENCE,,"Evaluate the following claim about aging biology.
+Claim: JAK1 has consistent, well-supported evidence of lifespan extension in OpenGenes.
 Answer with exactly one of these three labels on the final line:
 SUPPORTED / NOT_SUPPORTED / INSUFFICIENT_EVIDENCE"
-F055,XRCC6,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"XRCC6 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F055_mcq,mcq,INSUFFICIENT_EVIDENCE,C,"Which of the following statements is supported by OpenGenes?
+F055,JAK1,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"JAK1 has consistent, well-supported evidence of lifespan extension in OpenGenes.",train,F055_mcq,mcq,INSUFFICIENT_EVIDENCE,C,"Which of the following statements is supported by OpenGenes?
 A. TERT2B has consistent, well-supported evidence of lifespan extension in OpenGenes.
-B. XRCC6 is a general metabolic gene with no aging annotation.
-C. XRCC6 has consistent, well-supported evidence of lifespan extension in OpenGenes.
-D. The stated database does not contain an entry for XRCC6.
+B. JAK1 is a general metabolic gene with no aging annotation.
+C. JAK1 has consistent, well-supported evidence of lifespan extension in OpenGenes.
+D. The stated database does not contain an entry for JAK1.
 Answer with exactly one letter: A, B, C, or D."
 F056,HSPA9,OpenGenes,og_mixed,INSUFFICIENT_EVIDENCE,"HSPA9 has consistent, well-supported evidence of lifespan extension in OpenGenes.",test,F056_binary,binary,NO,,"Is the following claim supported by the stated database?
 Claim: HSPA9 has consistent, well-supported evidence of lifespan extension in OpenGenes.

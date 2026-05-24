@@ -223,30 +223,64 @@ def main():
     metrics["per_format"] = fmt_metrics
 
     # ── Format Instability Rate ──
-    print(f"\n── Format Instability Rate (headline metric) ──")
-    fact_groups = df_valid.groupby("fact_id")
+    # Group by base_fact_id (F001_v1 → F001) so paraphrase variants of the same
+    # underlying biological claim are not counted as independent facts for FIR.
+    print(f"\n── Format Instability Rate (headline metric, grouped by base_fact_id) ──")
+    df_valid["base_fact_id"] = df_valid["fact_id"].str.replace(r"_v\d+$", "", regex=True)
+
+    fact_groups = df_valid.groupby("base_fact_id")
     unstable_count = 0
     facts_with_2plus = 0
     instability_table = []
 
-    for fact_id, group in fact_groups:
+    for base_id, group in fact_groups:
         if group["format_type"].nunique() < 2:
             continue
         facts_with_2plus += 1
         fmt_correct = {}
         for _, row in group.iterrows():
-            fmt_correct[row["format_type"]] = bool(row["correct"])
+            fmt = row["format_type"]
+            # If multiple rows per format (e.g. base + paraphrase), fact is correct
+            # only if all variants for that format are correct
+            fmt_correct[fmt] = fmt_correct.get(fmt, True) and bool(row["correct"])
         stable = len(set(fmt_correct.values())) == 1
         if not stable:
             unstable_count += 1
         instability_table.append({
-            "fact_id": fact_id,
+            "fact_id": base_id,
             "gene": group["gene"].iloc[0],
             "binary_ok": fmt_correct.get("binary"),
             "ternary_ok": fmt_correct.get("ternary"),
             "mcq_ok": fmt_correct.get("mcq"),
             "stable": stable,
         })
+
+    # ── Paraphrase Instability (within same format, base vs variants) ──
+    para_mask = df_valid["fact_id"].str.contains(r"_v\d+$", regex=True)
+    base_mask = ~para_mask
+    para_instability = {}
+    if para_mask.any():
+        for fmt in ["binary", "ternary", "mcq"]:
+            fmt_df = df_valid[df_valid["format_type"] == fmt]
+            base_df = fmt_df[~fmt_df["fact_id"].str.contains(r"_v\d+$", regex=True)].set_index("base_fact_id")
+            para_df_fmt = fmt_df[fmt_df["fact_id"].str.contains(r"_v\d+$", regex=True)]
+            mismatch = 0
+            checked = 0
+            for _, row in para_df_fmt.iterrows():
+                bid = row["base_fact_id"]
+                if bid in base_df.index:
+                    checked += 1
+                    if bool(row["correct"]) != bool(base_df.loc[bid, "correct"]):
+                        mismatch += 1
+            if checked > 0:
+                para_instability[fmt] = {"mismatches": mismatch, "checked": checked,
+                                         "rate": round(mismatch / checked, 4)}
+        if para_instability:
+            print(f"\n── Paraphrase Instability (base vs variant, same format) ──")
+            for fmt, v in para_instability.items():
+                print(f"  {fmt:8s}: {v['mismatches']}/{v['checked']} mismatch "
+                      f"({v['rate']*100:.1f}%)")
+        metrics["paraphrase_instability"] = para_instability
 
     fir = unstable_count / facts_with_2plus if facts_with_2plus > 0 else 0.0
     print(f"  Unstable facts:         {unstable_count} / {facts_with_2plus}")
@@ -267,7 +301,7 @@ def main():
         if v is None: return "  -"
         return "  ✓" if v else "  ✗"
 
-    print(f"\n  {'fact_id':<8} {'gene':<12} {'binary':>7} {'ternary':>8} {'mcq':>5} {'stable':>7}")
+    print(f"\n  {'base_id':<8} {'gene':<12} {'binary':>7} {'ternary':>8} {'mcq':>5} {'stable':>7}")
     print("  " + "-" * 52)
     for r in sorted(instability_table, key=lambda x: x["fact_id"]):
         print(f"  {r['fact_id']:<8} {r['gene']:<12}"
@@ -356,6 +390,100 @@ def main():
         stat_tests["mcnemar_c"] = c_count
         stat_tests["mcnemar_chi2"] = round(chi2_stat, 4)
         stat_tests["mcnemar_p"] = round(p_val, 4)
+
+    # ═══════════════════════════════════════════════════════════
+    # Cohen's κ between format pairs (correctness agreement)
+    # ═══════════════════════════════════════════════════════════
+    def cohens_kappa(correct_a: list, correct_b: list) -> float:
+        n = len(correct_a)
+        if n == 0:
+            return 0.0
+        p_o = sum(a == b for a, b in zip(correct_a, correct_b)) / n
+        p_yes_a = sum(correct_a) / n
+        p_yes_b = sum(correct_b) / n
+        p_e = p_yes_a * p_yes_b + (1 - p_yes_a) * (1 - p_yes_b)
+        if p_e == 1.0:
+            return 0.0
+        return (p_o - p_e) / (1 - p_e)
+
+    def kappa_interpretation(k: float) -> str:
+        if k > 0.6:
+            return "substantial agreement"
+        if k >= 0.2:
+            return "moderate agreement"
+        if k >= 0.0:
+            return "slight/poor agreement"
+        return "worse than chance"
+
+    def cramers_v(contingency_table: list) -> float:
+        table = np.array(contingency_table, dtype=float)
+        n = table.sum()
+        if n == 0:
+            return 0.0
+        row_sums = table.sum(axis=1)
+        col_sums = table.sum(axis=0)
+        chi2 = 0.0
+        for i in range(table.shape[0]):
+            for j in range(table.shape[1]):
+                expected = row_sums[i] * col_sums[j] / n
+                if expected > 0:
+                    chi2 += (table[i, j] - expected) ** 2 / expected
+        k = min(table.shape) - 1
+        if k == 0:
+            return 0.0
+        return float((chi2 / (n * k)) ** 0.5)
+
+    print(f"\n── Cohen's κ (inter-format agreement on correctness) ──")
+    kappa_results = {}
+
+    # Use base_fact_id-level correctness (already computed in instability_table)
+    # Build per-format correctness vectors aligned by base_fact_id
+    fid_fmt_correct = {}
+    for r in instability_table:
+        fid_fmt_correct[r["fact_id"]] = {
+            fmt: r.get(f"{fmt}_ok") for fmt in ("binary", "ternary", "mcq")
+        }
+
+    for fmt_a, fmt_b, key in [("binary", "ternary", "binary_ternary"),
+                               ("binary", "mcq",     "binary_mcq"),
+                               ("ternary", "mcq",    "ternary_mcq")]:
+        pairs_a, pairs_b = [], []
+        for fid, fmts in fid_fmt_correct.items():
+            va = fmts.get(fmt_a)
+            vb = fmts.get(fmt_b)
+            if va is not None and vb is not None:
+                pairs_a.append(bool(va))
+                pairs_b.append(bool(vb))
+        if len(pairs_a) < 2:
+            print(f"  κ ({fmt_a} vs {fmt_b}): not enough data")
+            continue
+        k = cohens_kappa(pairs_a, pairs_b)
+        kappa_results[key] = round(k, 4)
+        print(f"  Cohen's κ ({fmt_a} vs {fmt_b}): {k:+.3f}  [{kappa_interpretation(k)}]")
+
+    if kappa_results:
+        stat_tests["cohens_kappa"] = kappa_results
+        print(f"  Interpretation: κ near 0 or negative → formats are statistically "
+              f"independent response contexts")
+
+    # ── Cramér's V (format vs label distribution) ──
+    print(f"\n── Cramér's V (format vs predicted label) ──")
+    formats_ord = ["binary", "ternary", "mcq"]
+    labels_ord  = ["YES", "NO", "SUPPORTED", "NOT_SUPPORTED",
+                   "INSUFFICIENT_EVIDENCE", "UNPARSEABLE"]
+    # Normalise binary labels for consistency
+    label_set = sorted(df_valid["parsed_label"].unique())
+    contingency = []
+    for fmt in formats_ord:
+        sub = df_valid[df_valid["format_type"] == fmt]
+        row = [int((sub["parsed_label"] == lbl).sum()) for lbl in label_set]
+        contingency.append(row)
+
+    v = cramers_v(contingency)
+    stat_tests["cramers_v"] = round(v, 4)
+    interp_v = "strong" if v > 0.3 else ("moderate" if v > 0.15 else "weak")
+    print(f"  Cramér's V (format vs label): {v:.3f}  [{interp_v} association]")
+    print(f"  V > 0.3 → strong association between format and label choice")
 
     metrics["statistical_tests"] = stat_tests
 
